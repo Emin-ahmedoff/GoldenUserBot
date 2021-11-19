@@ -1014,7 +1014,7 @@ CmdHelp('memes').add_command(
 ).add_command(
     'type', '<text>', 'Bunu yazı makinası kimi yazın.'
 ).add_command(
-    'lfy', '<query>', 'Google'a bunu sizin üçün axtarmağa icazə verin.'
+    'lfy', '<query>', 'Google a bunu sizin üçün axtarmağa icazə verin.'
 ).add_command(
     'scam', '<action> <duration>', 'Saxta hərəkətlər yaradın.\nMövcud əməliyyatlar: (yazmaq, əlaqə, oyun, məkan, səs, dövrə, video, foto, sənəd, ləğv etmək)'
 ).add_command(
