@@ -905,7 +905,7 @@ CmdHelp('scrapers').add_command(
 ).add_command(
     'tts', '<text>', 'Mətni audioya çevirir.'
 ).add_command(
-    'lang', '<language>', 'tts və trt üçün dil təyin edin.
+    'lang', '<language>', 'tts və trt üçün dil təyin edin.'
 ).add_command(
     'tts2', '<gender> <text>', 'Mətni audioya çevirir.', 'tts2 male salam'
 ).add_command(
