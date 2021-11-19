@@ -905,7 +905,7 @@ CmdHelp('scrapers').add_command(
 ).add_command(
     'tts', '<text>', 'Mətni audioya çevirir.'
 ).add_command(
-    'lang', '<language>', 'tts və trt' üçün dil təyin edin.
+    'lang', '<language>', 'tts və trt üçün dil təyin edin.
 ).add_command(
     'tts2', '<gender> <text>', 'Mətni audioya çevirir.', 'tts2 male salam'
 ).add_command(
@@ -917,9 +917,9 @@ CmdHelp('scrapers').add_command(
 ).add_command(
     'imdb', '<film>', 'Film haqqında məlumat verir.'
 ).add_command(
-    'ripaudio', '<link>', 'YouTube'dan (və ya digər saytlardan) audio yükləyir.'
+    'ripaudio', '<link>', 'YouTubedən (və ya digər saytlardan) audio yükləyir.'
 ).add_command(
-    'ripvideo', '<link>', 'YouTube'dan (və ya digər saytlardan) video yükləyir.'
+    'ripvideo', '<link>', 'YouTubedən (və ya digər saytlardan) video yükləyir.'
 ).add_info(
     '[Rip əmri ilə dəstəklənən saytlar.](https://ytdl-org.github.io/youtube-dl/supportedsites.html)'
 ).add()
