@@ -64,7 +64,7 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LANGUAGE = "DEFAULT"
     
 # Gold Sürümü
-GOLD_VERSION = "v3.0.7"
+GOLDEN_VERSION = "v3.0.7"
 
 # Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", None)
