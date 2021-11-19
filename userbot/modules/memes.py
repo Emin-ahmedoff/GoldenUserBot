@@ -974,7 +974,7 @@ CmdHelp('memes').add_command(
 ).add_command(
     '10iq', 'Selax mesaj yazır.'
 ).add_command(
-    'mizah', Yoxdur, 'Wheel Selax Master zarafat edirsə, dərhal istifadə edin.'
+    'mizah', 'Wheel Selax Master zarafat edirsə, dərhal istifadə edin.'
 ).add_command(
     'zal', '<reply/message>', 'Çox mürəkkəbdir! Hər şey çox mürəkkəbdir.'
 ).add_command(
