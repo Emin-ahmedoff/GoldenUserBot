@@ -956,15 +956,15 @@ async def typewriter(typew):
 CmdHelp('memes').add_command(
 'heyvan', 'pişik/it/panda/quş/canavar', 'Təsadüfi heyvan şəkli təyin edir.'
 ).add_command(
-    'cowsay', Yox, 'İnək nəsə deyir'
+    'cowsay', 'İnək nəsə deyir'
 ).add_command(
-    ':/', Yox, 'Tioxun 3 aydır adını öyrənmədiyi ağlıma gəlir.'
+    ':/', 'Tioxun 3 aydır adını öyrənmədiyi ağlıma gəlir.'
 ).add_command(
-    'karar', Yox, 'Qərar verin.'
+    'karar', 'Qərar verin.'
 ).add_command(
-    '-_-', Yox, 'Yaxşı.\n-Əziz Ustadım'
+    '-_-', 'Yaxşı.\n-Əziz Ustadım'
 ).add_command(
-    ';_;', Yoxdu, 'Berkant\' Təsəvvür edin ki, qayınanasını 5 dəqiqə görmürəm.'
+    ';_;', 'Berkant\' Təsəvvür edin ki, qayınanasını 5 dəqiqə görmürəm.'
 ).add_command(
     'cp', '<response>', 'Emoji və ya başqa bir şey əlavə edir.'
 ).add_command(
@@ -972,43 +972,43 @@ CmdHelp('memes').add_command(
 ).add_command(
     'str', '<text>', 'Mətni genişləndir.'
 ).add_command(
-    '10iq', Yox, 'Selax mesaj yazır.'
+    '10iq', 'Selax mesaj yazır.'
 ).add_command(
     'mizah', Yoxdur, 'Wheel Selax Master zarafat edirsə, dərhal istifadə edin.'
 ).add_command(
     'zal', '<reply/message>', 'Çox mürəkkəbdir! Hər şey çox mürəkkəbdir.'
 ).add_command(
-    'of', heç biri, 'sizin'
+    'of', 'sizin'
 ).add_command(
-    'skrrt', Heç biri, 'sıxmaq'
+    'skrrt', 'sıxmaq'
 ).add_command(
-    'fuk', Yox, '+18'
+    'fuk', '+18'
 ).add_command(
     'kalp', '<name>', 'Sevgini göstər.'
 ).add_command(
-    'fp', Yox, 'Utanıram.'
+    'fp', 'Utanıram.'
 ).add_command(
-    'moon', Yoxdur, 'Ay animasiyası'.
+    'moon', 'Ay animasiyası'.
 ).add_command(
-    'clock', Yox, 'Berkant qayınanasını gözləyir. (Saat animasiyası)'
+    'clock', 'Berkant qayınanasını gözləyir. (Saat animasiyası)'
 ).add_command(
-    'hi', Heç biri, 'Salam.'
+    'hi', 'Salam.'
 ).add_command(
-    'owo', heç biri, 'LOLcu Selin kimi'
+    'owo', 'LOLcu Selin kimi'
 ).add_command(
-    'react', Yox, 'Azarbotun hər hansı bir şeyə reaksiya verməsini təmin et.'
+    'react', 'Azarbotun hər hansı bir şeyə reaksiya verməsini təmin et.'
 ).add_command(
     'slap', '<reply>', 'Təsadüfi obyektlərlə sillə vurmaq üçün mesaja cavab verin.'
 ).add_command(
-    'cry', Yox, 'Ağlamaq istəyirsən?'
+    'cry', 'Ağlamaq istəyirsən?'
 ).add_command(
-    'shg', Yox, '¯\_(ツ)_/¯'
+    'shg', '¯\_(ツ)_/¯'
 ).add_command(
-    'run', Heç biri, 'Qaç!'
+    'run', 'Qaç!'
 ).add_command(
     'mock', '<reply/message>', 'Bunu hazırlayın və əsl əyləncə tapın.'
 ).add_command(
-    'clap', Yox, 'Mən alqışlayıram, yarpaqları deyil, Starbotları!'
+    'clap', 'Mən alqışlayıram, yarpaqları deyil, Starbotları!'
 ).add_command(
     'f', '<mesaj>', 'F'
 ).add_command(
@@ -1020,7 +1020,7 @@ CmdHelp('memes').add_command(
 ).add_command(
     'lfy', '<query>', 'Google'a bunu sizin üçün axtarmağa icazə verin.'
 ).add_command(
-    'boşluk', Yoxdur, 'Boş mesaj. (Mən İlon Maskdan öyrəndim.)'
+    'boşluk', 'Boş mesaj. (Mən İlon Maskdan öyrəndim.)'
 ).add_command(
     'ğ', '<text>', 'Ğ'
 ).add()
