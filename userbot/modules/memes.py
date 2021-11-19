@@ -1018,7 +1018,7 @@ CmdHelp('memes').add_command(
 ).add_command(
     'scam', '<action> <duration>', 'Saxta hərəkətlər yaradın.\nMövcud əməliyyatlar: (yazmaq, əlaqə, oyun, məkan, səs, dövrə, video, foto, sənəd, ləğv etmək)'
 ).add_command(
-    'lfy', '<query>', 'Google'a bunu sizin üçün axtarmağa icazə verin.'
+    'lfy', '<query>', 'Google  bunu sizin üçün axtarmağa icazə verin.'
 ).add_command(
     'boşluk', 'Boş mesaj. (Mən İlon Maskdan öyrəndim.)'
 ).add_command(
