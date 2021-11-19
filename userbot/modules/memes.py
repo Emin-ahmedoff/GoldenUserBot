@@ -988,7 +988,7 @@ CmdHelp('memes').add_command(
 ).add_command(
     'fp', 'Utanıram.'
 ).add_command(
-    'moon', 'Ay animasiyası'.
+    'moon', 'Ay animasiyası.'
 ).add_command(
     'clock', 'Berkant qayınanasını gözləyir. (Saat animasiyası)'
 ).add_command(
