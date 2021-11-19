@@ -1316,9 +1316,9 @@ CmdHelp('admin').add_command(
     ).add_command(
         'zombies', 'Bir qrupda silinmiş hesabları axtarın. Silinmiş hesabları qrupdan silmək üçün .zombies clean əmrindən istifadə edin.'
     ).add_command(
-        'admins', Yoxdur, 'Söhbət adminlərinin siyahısını alır.'
+        'admins', 'Söhbət adminlərinin siyahısını alır.'
     ).add_command(
-        'bots', Yoxdur, 'Qrupda silinmiş hesabları axtarın. Silinmiş hesabları qrupdan silmək üçün .zombies clean əmrindən istifadə edin.'
+        'bots', 'Qrupda silinmiş hesabları axtarın. Silinmiş hesabları qrupdan silmək üçün .zombies clean əmrindən istifadə edin.'
     ).add_command(
         'users or .users', '<username> <username/reply>', 'Söhbətdəki bütün (və ya sorğu edilən) istifadəçiləri əldə edir.'
     ).add_command(
@@ -1326,7 +1326,7 @@ CmdHelp('admin').add_command(
     ).add_command(
         'unwarn', '<istifadəçi adı/cavab vermə> <səbəb (isteğe bağlı>', 'Sizin qeyd etdiyiniz istifadəçi xəbərdarlığını silir.'
     ).add_command(
-        'usersdel', Yox, 'Qrup daxilində silinmiş hesabları göstərir.'
+        'usersdel', 'Qrup daxilində silinmiş hesabları göstərir.'
     ).add_command(
         'ekle', '<istifadəçi adı(lar)>', 'Qrupa üzvlər əlavə edir.'
     ).add_command(
