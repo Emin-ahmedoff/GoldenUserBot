@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Gold UserBot - Yusuf Usta
+# Golden UserBot - Yusuf Usta
 
 
 """ Sunucu hakkında bilgi veren UserBot modülüdür. """
@@ -14,7 +14,7 @@ from asyncio.subprocess import PIPE as asyncPIPE
 from platform import uname
 from shutil import which
 from os import remove
-from userbot import CMD_HELP, GOLD_VERSION
+from userbot import CMD_HELP, GOLDEN_VERSION
 from userbot.events import register
 from userbot.main import PLUGIN_MESAJLAR
 from telethon import version
