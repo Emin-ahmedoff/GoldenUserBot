@@ -1314,7 +1314,7 @@ CmdHelp('admin').add_command(
     ).add_command(
         'ungmute', '<username/reply>', 'Kontaktı qlobal səssiz siyahıdan silin.'
     ).add_command(
-        'zombies', Yox, 'Bir qrupda silinmiş hesabları axtarın. Silinmiş hesabları qrupdan silmək üçün .zombies clean əmrindən istifadə edin.'
+        'zombies', 'Bir qrupda silinmiş hesabları axtarın. Silinmiş hesabları qrupdan silmək üçün .zombies clean əmrindən istifadə edin.'
     ).add_command(
         'admins', Yoxdur, 'Söhbət adminlərinin siyahısını alır.'
     ).add_command(
