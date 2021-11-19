@@ -4,14 +4,14 @@
 
 <div align="center">
   <img src="https://i.imgyukle.com/2020/05/29/yBpJsP.jpg" width="200" height="200">
-  <h1>Golden UserBot</h1>
+  <h1>Asena UserBot</h1>
 </div>
 <p align="center">
     Golden UserBot, Telegram kullanmanızı kolaylaştıran bir bottur. Tamamen açık kaynaklı ve ücretsizdir.
     <br>
         <a href="https://github.com/Emin-ahmedoff/GoldenUserBot/blob/master/README.md#kurulum">Kurulum</a> |
-        <a href="https://github.com//Emin-ahmedoff/GoldenUserBot/wiki/G%C3%BCncelleme">Yenilenme</a> |
-        <a href="https://t.me/GoldenUserBot">Telegram Kanalı</a>
+        <a href="https://github.com//Emin-ahmedoff/GoldenUserBot/wiki/G%C3%BCncelleme">Güncelleme</a> |
+        <a href="https://t.me/AsenaUserBot">Telegram Kanalı</a>
     <br>
 </p>
 
@@ -28,9 +28,9 @@
 **Windows 10:** [Python](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l#activetab=pivot:overviewtab) indirin ardından PowerShell bu kodu yapıştırın: `Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://kutt.it/aYTzCx')`
 
 ### Basit Yöntem
-Eğer botu kurma hakkında fikriniz yoksa burayı okuyunuz: [Kurulum Rehberi](https://github.com/Emin-ahmedoff/GoldenUserBot/wiki/Kurulum/)
+Eğer botu kurma hakkında fikriniz yoksa burayı okuyunuz: [Kurulum Rehberi](https://github.com/Quiec/AsenaUserBot/wiki/Kurulum/)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Emin-ahmedoff/GoldenUserBot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Emin-ahmedoff/AsenaUserBot)
 ### Zor Yöntem
 ```python
 git clone https://github.com/Quiec/AsenaUserBot.git
