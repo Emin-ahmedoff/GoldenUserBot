@@ -81,7 +81,7 @@ async def bot_ver(event):
                          "`")
     else:
         await event.edit(
-            "[N Σ O N](https://t.me/NeonUserBot)"
+            "[GOLDEN](https://t.me/GoldenUserBot)"
         )
 
 
@@ -148,7 +148,7 @@ async def amialive(e):
             PLUGIN_MESAJLAR['alive'].text = PLUGIN_MESAJLAR['alive'].text.format(
                 telethon=version.__version__,
                 python=python_version(),
-                neon=NEON_VERSION,
+                golden=GOLDEN_VERSION,
                 plugin=len(CMD_HELP),
                 id=me.id,
                 username='@' +
