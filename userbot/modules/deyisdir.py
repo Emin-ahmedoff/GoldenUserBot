@@ -1,10 +1,11 @@
-# Copyright (C) 2020 Yusuf Usta.
+# Copyright (C) 2020 
 #
 # Licensed under the  GPL-3.0 License;
 # you may not use this file except in compliance with the License.
 #
 
-# Golden
+# Golden USER BOT
+
 import re
 import userbot.modules.sql_helper.mesaj_sql as sql
 from userbot import CMD_HELP
@@ -19,12 +20,11 @@ LANG = get_value("degistir")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.change ?$")
-@register(outgoing=True, pattern="^.deyisdir ?$")
+@register(outgoing=True, pattern="^.change ?(.*)")
+@register(outgoing=True, pattern="^.deyisdir ?(.*)")
 async def degistir(event):
-    if event.pattern_match.group(1):
-        plugin = event.pattern_match.group(1)    
-        mesaj = re.search(r"\"(.*)\"", plugin)
+    plugin = event.pattern_match.group(1)
+    mesaj = re.search(r"\"(.*)\"", plugin)
 
     if mesaj:
         rege = re.findall(r"(?:|$)(.*)\"(.*)\"", plugin)
@@ -34,17 +34,7 @@ async def degistir(event):
         mesaj = []
 
     plugin = plugin.strip()
-    NOVLER = [
-        "afk",
-        "alive",
-        "pm",
-        "kickme",
-        "dızcı",
-        "ban",
-        "mute",
-        "approve",
-        "disapprove",
-        "block"]
+    NOVLER = ["afk", "alive", "pm", "kickme", "dızcı", "ban", "mute", "approve", "disapprove", "block"]
     if type(mesaj) == list:
         if plugin in NOVLER:
             if event.is_reply:
@@ -56,7 +46,7 @@ async def degistir(event):
                     return await event.edit(f"Plugin(`{plugin}`) {LANG['SETTED_MEDIA']}")
                 PLUGIN_MESAJLAR[plugin] = reply.text
                 sql.ekle_mesaj(plugin, reply.text)
-                return await event.edit(f"Plugin(`{plugin}`) {LANG['SETTED_REPLY']}")
+                return await event.edit(f"Plugin(`{plugin}`) {LANG['SETTED_REPLY']}")   
 
             silme = sql.sil_mesaj(plugin)
             if silme == True:
@@ -81,11 +71,11 @@ async def degistir(event):
             await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block`")
 
 CmdHelp('deyisdir').add_command(
-    'deyisdir | .change', '<modul> <mesaj/cavab>', 'Deyisdir, botdakı pluginlərin mesajlarını dəyişdirməyə yarar. Əgər mesaj yazmasanız Plugin mesajını orjinal halına salar.', '.deyisdir afk \"İndi burda deyiləm... Belkə heç gəlmərəm\"'
+    'değiştir', '<modul> <mesaj/cavab>', 'Deyisdir, botdakı pluginlərin mesajlarını dəyişdirməyə yarar. Əgər mesaj yazmasanız Plugin mesajını orjinal halına salar.', '.deyisdir afk \"İndi burda deyiləm... Belkə heç gəlmərəm\"'
 ).add_info(
     '**Dəstəklənən Pluginlər:** `afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block`\n**Alive Dəyişkənləri:** `{plugin}, {telethon}, {python}`\n\
 **Ban/Mute Dəyişkənləri:** `{id}, {username}, {first_name}, {last_name}, {mention}, {date}, {count}`\n\
 **AFK Deyisgenleri:** `{username}, {mention}, {first_name}, {last_name}, {last_seen_seconds}, {last_seen}, {last_seen_long}`\n\
-**PMpermit Dəyişkənləri(pm, block, approve, disapprove):** `{id}, {username}, {mention}, {first_name}, {last_name}`\n\
+**PMpermit Dəyişkənləri(pm, block, approve, disapprove):** `{id}, {username}, {mention}, {first_name}, {last_name}`\
 **Kickme Dəyişkənləri:** `{title}`'
 ).add()
