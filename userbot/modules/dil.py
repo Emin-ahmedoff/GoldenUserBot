@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Asena UserBot - Yusuf Usta
+# Golden
 
 from userbot.cmdhelp import CmdHelp
 from userbot import PLUGIN_CHANNEL_ID, CMD_HELP
@@ -27,7 +27,7 @@ async def dil(event):
             dosya = await reply.download_media()
 
             if ((len(reply.file.name.split(".")) >= 2) and (
-                    not reply.file.name.split(".")[1] == "neonjson")):
+                    not reply.file.name.split(".")[1] == "goldenjson")):
                 return await event.edit("`Zəhmət olmasa keçərli` **GOLDENJSON** `faylı verin!`")
 
             try:
