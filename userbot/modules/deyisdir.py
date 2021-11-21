@@ -4,8 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Asena UserBot - Yusuf Usta
-
+# Golden
 import re
 import userbot.modules.sql_helper.mesaj_sql as sql
 from userbot import CMD_HELP
@@ -16,12 +15,12 @@ from userbot.cmdhelp import CmdHelp
 # ██████ LANGUAGE CONSTANTS ██████ #
 
 from userbot.language import get_value
-LANG = get_value("deyistir")
+LANG = get_value("degistir")
 
 # ████████████████████████████████ #
 
 @register(outgoing=True, pattern="^.change$")
-@register(outgoing=True, pattern="^.d[eə]yi[sş]dir$")
+@register(outgoing=True, pattern="^.deyisdir$")
 async def degistir(event):
     if event.pattern_match.group(1):
         plugin = event.pattern_match.group(1)    
