@@ -244,5 +244,5 @@ async def ptest(event):
         await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}`")
         return os.remove("./userbot/temp_plugins/" + dosya)
 
-    return await event.edit(f'**Plugin uğurla Silindi!**\
+    return await event.edit(f'**Plugin Test üçün uğurla Yükləndi!**\
     \n__Modul yoxlamanızı edə bilərsiz. Bota restart atandan sonra modul silinəcəkdir.__')
