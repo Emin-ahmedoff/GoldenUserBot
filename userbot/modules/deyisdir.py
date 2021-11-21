@@ -19,8 +19,8 @@ LANG = get_value("degistir")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.change$")
-@register(outgoing=True, pattern="^.deyisdir$")
+@register(outgoing=True, pattern="^.change ?$")
+@register(outgoing=True, pattern="^.deyisdir ?$")
 async def degistir(event):
     if event.pattern_match.group(1):
         plugin = event.pattern_match.group(1)    
