@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# golden UserBot - Yusuf Usta
+# Golden UserBot
 
 import re
 import os
@@ -244,5 +244,5 @@ async def ptest(event):
         await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}`")
         return os.remove("./userbot/temp_plugins/" + dosya)
 
-    return await event.edit(f'**Plugin uğurla yükləndi!**\
-    \n__Modül denemenizi yapabilirsiniz. Botu yeniden başlattığınız da plugin çalışmayacak.__')
+    return await event.edit(f'**Plugin uğurla Silindi!**\
+    \n__Modul yoxlamanızı edə bilərsiz. Bota restart atandan sonra modul silinəcəkdir.__')
