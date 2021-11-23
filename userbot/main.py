@@ -237,7 +237,7 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info("Botunuz çalışıyor! Herhangi bir sohbete .alive yazarak Test edin."
-          " Yardıma ihtiyacınız varsa, Destek grubumuza gelin t.me/AsenaSupport")
+          " Yardıma ihtiyacınız varsa, Destek grubumuza gelin t.me/Goldensupportaz")
 LOGS.info(f"Bot sürümünüz: Golden {GOLDEN_VERSION}")
 
 """
