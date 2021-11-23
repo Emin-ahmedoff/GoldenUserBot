@@ -42,7 +42,7 @@ DIZCILIK_STR = [
 ]
 
 AFKSTR = [
-    "Mən indi tələsirəm, sonra mənə yaza bilərsən? Onsuz da yenə gələcəm.”,
+    "Mən indi tələsirəm, sonra mənə yaza bilərsən? Onsuz da yenə gələcəm.`”,
     "Zəng etdiyiniz şəxs hazırda telefona cavab verə bilmir. Tondan sonra mesajınızı öz tarifinizdə qoya bilərsiniz. Mesajın qiyməti 49 qəpikdir. \n`biiiiiiiiiiiiiiiiiiiiiiiiiiiiip`!",
     "Bir neçə dəqiqəyə qayıdacağam. Amma etməsəm... bir az daha gözləyin.",
     "Hazırda burada deyiləm, yəqin ki, başqa yerdəyəm.",
