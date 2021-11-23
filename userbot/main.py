@@ -233,8 +233,8 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info("Botunuz işleyir! Hansısa söhbete  .alive yazaraq Test ede bilersiz!."
-          " Kömeye ehtiyacınız varsa, destek qrupuna gelin: t.me/AlphaSupportaz")
-LOGS.info(f"Bot versiyası: Alpha {ALPHA_VERSION}")
+          " Kömeye ehtiyacınız varsa, destek qrupuna gelin: t.me/GoldenSupportaz")
+LOGS.info(f"Bot versiyası: Golden {GOLDEN_VERSION}")
 
 """
 if len(argv) not in (1, 3, 4):
