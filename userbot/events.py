@@ -80,7 +80,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**USERBOT XƏTA HESABATI**\n"
-                    link = "[Golden Dəstək Qrupu](https://t.me/goldenSupport)"
+                    link = "[Golden Dəstək Qrupu](https://t.me/goldenSupportaz)"
                     text += "İstəsəniz, xəbər verə bilərsiniz"
                     text += f"- sadəcə bu mesajı buraya yönləndirin {link}.\n"
                     text += "Xəta və Tarixdən başqa heç nə qeyd olunmur\n"
