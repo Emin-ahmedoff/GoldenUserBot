@@ -2,11 +2,12 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
-#
 
-# Golden UserBot 
+#AlphaUserBot
 
-""" UserBot başlangıç nöktəsi """
+
+
+
 import importlib
 from importlib import import_module
 from sqlite3 import connect
@@ -18,7 +19,7 @@ from telethon.tl.functions.channels import GetMessagesRequest
 from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, GOLDEN_VERSION, PATTERNS
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
-import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
+import userbot.modules.sql_helper.qaleriya_sql as QALERIYA_SQL
 from pySmartDL import SmartDL
 from telethon.tl import functions
 
@@ -29,55 +30,50 @@ import re
 import userbot.cmdhelp
 
 DIZCILIK_STR = [
-    "Stikerdən nifrət edirəm...",
-     "Yaşasın diz çökək...",
-     "Bu stikeri öz paketimə dəvət edirəm...",
-     "Mən bunu rişxənd etməliyəm..."
-     "Hey, bu gözəl stikerdir!\nMən dərhal sidiyirəm..",
-     "Stikerinizə nifrət edirəm\nhahaha.",
-     "Hey bax oraya. (☉｡☉)!→\nMən bunu satarkən...",
-     "Qızılgüllər qırmızıdır, bənövşələr mavidir, bu stikeri paketimə yapışdırsam sərin olaram...",
-     "Stiker həbsdədir...",
-      "Cənab zarafatcıl bu stikeri sızıldadır",
+    "Stickeri dızlayıram...",
+    "Sticker paketə əlavə edilir...",
+    "Bu sticker artıq mənimdir!",
+    "Bunu stickerlərimə əlavə etməliyəm... ",
+    "Sticker həps edilir...",
+    "Mən bir sticker oğrusuyam stickerin məndədi ;D!",
+    "Nə gözəl stickerdi bu!"
 ]
 
 AFKSTR = [
-    "Mən indi tələsirəm, sonra mənə yaza bilərsən? Onsuz da yenə gələcəm.",
-    "Zəng etdiyiniz şəxs hazırda telefona cavab verə bilmir. Tondan sonra mesajınızı öz tarifinizdə qoya bilərsiniz. Mesajın qiyməti 49 qəpikdir. \n`biiiiiiiiiiiiiiiiiiiiiiiiiiiiip`!",
-    "Bir neçə dəqiqəyə qayıdacağam. Amma etməsəm... bir az daha gözləyin.",
-    "Hazırda burada deyiləm, yəqin ki, başqa yerdəyəm.",
-    "Qızılgüllər qırmızıdır\nBənövşələr mavidir\nMənə mesaj buraxın\nMən sizə qayıdacağam.",
-    "Bəzən həyatda ən yaxşı şeylər gözləməyə dəyər...\nMən tezliklə qayıdacağam.",
-    "Mən tezliklə qayıdacağam, amma qayıtmasam, daha sonra qayıdacağam.",
-    "Hələ başa düşmürsənsə,\nMən burada deyiləm.",
-    "Salam, uzaq mesajıma xoş gəldin, bu gün səni necə görməməzliyə vura bilərəm?",
-    "Mən 7 dəniz və 7 ölkədən,\n7 su və 7 qitədən,\n7 dağ və 7 təpədən,\n7 düzən və 7 kurqandan,\n7 hovuz və 7 göldən,\n7 bulaqdan və 7 çəmənlikdən,\n7 şəhərdən və 7 məhəllə, \n7 məhəllə və 7 ev...\n\nMənə mesajların belə çata bilməyəcəyi yer!",
-    "Hazırda klaviaturadan uzaqdayam, amma ekranda kifayət qədər yüksək səslə qışqırsan, səni eşidirəm.",
-    "Mən aşağıdakı istiqamətdə hərəkət edirəm\n---->",
-    "Mən bu istiqamətdə gedirəm\n<----",
-    "Lütfən, bir mesaj buraxın və məni artıq olduğumdan daha vacib hiss etdirin.",
-    "Sahibim burada deyil, mənə mesaj yazmağı dayandırın.",
-    "Burada olsaydım\nSənə harda olduğumu deyərdim.\n\nAmma mən deyiləm,\ngeri qayıdanda soruş...",
-    "Mən uzaqdayam!\nBilmirəm nə vaxt qayıdacağam!\nİnşallah bir neçə dəqiqəyə!",
-    "Sahibim hazırda müsait deyil. Adınızı, nömrənizi və ünvanınızı bildirsəniz, mən onu ona verə bilərəm ki, qayıdanda.",
-    "Bağışlayın, ustadım burada deyil.\nO gələnə qədər mənimlə danışa bilərsiniz.\nAğam daha sonra sizinlə əlaqə saxlayacaq.",
-    "Məhz edirəm ki, bir mesaj gözləyirdin!",
-    "Həyat çox qısadır, görüləsi çox şey var...\nMən onlardan birini edirəm...",
-    "Hal-hazırda burada deyiləm....\n amma olsam ...\n\nbu əla olmazdımı?",
+    "İndi burda deyiləm gələndə yazaram.",
+    "Sahibim burda deyil gözlə gələndə yazar.",
+    "Sahibim istirahətdədi onu narahat eləmə :)",
+    "Zəng etdiyiniz şəxsə zəng çatmır, telefon ya söndürülüb yada əhatə dairəsi xaricindədir xaiş olunur daha sonra təkrar cəhd edin.",
+    "Gizlenqaç oynayıram sakit durrr",
+    "Bəli?",
+    "Salam mən sahibimin meneceriyəm\nBuyurun istəklərinizi mənə deyə bilərsiz. Sizin üçün sahibimə çatdıraram.",
+    "Hələdə anlamadınsa burda deyiləm.",
+    "Salam, uzaq mesajıma xoş gəldiniz, sizə necə kömək edə bilərəm?",
+    "Mən sahibimin xüsusi botuyam!, sizdə bot istəyirsizsə: @AlphaUserBot",
+    "Hal hazırda burdan çoox uzaqdayam.\nQışqırsan bəlkə eşitdim.",
+    "Bu tərəfə gedirəm\n---->",
+    "Bu tərəfə gedirəm\n<----",
+    "Zəhmət olmasa mesajınızı yazın sahibim gələndə sizə cavab yazar.",
+    "Sahibim burda deyil mənə yazmağı kəs artıq.",
+    "Sahibim işi var onu narahat eləmə. O iş görərkən onu narahat etmək onu əsəbləşdirir:)",
+    "Sahibim burda deyil. O gələnə qədər mənimlə danışa bilərsiz.",
+    "Belə gözəl bir gündə niyə məni narahat edirsən?",
+    "Sahibimə mesaj atmaq üçün zəhmət olmasa aşağıdakıları yazın:\nAdınız:\nSoyadınız:\nİsdifadəçi Adınız:\n\nƏgər yuxarıadakıları düzgün yazdızsa sahibim ən qısa zamanda sizə yazacaq.",
+    "Hal hazırda burdayam amma mesajını görməzdən gələcəm :)",
 ]
 
-UNAPPROVED_MSG = ("`Hey,` {mention}`! Bu botdur. Narahat olma.\n\n`"
-                  "`Sahibim sənə pm göndərməyə icazə vermədi. `"
-                  "`Xahiş edirəm sahibimin aktiv olmasını gözləyin, o, adətən PM-ləri təsdiqləyir.\n\n`"
-                  "`Bildiyimə görə baş nazirdən dəlilərə icazə vermir.`")
+UNAPPROVED_MSG = ("`Hey,` {mention}`! Bu bir bot. Narahat olma.\n\n`"
+                  "`Sahibim sənə PM atma icazəsi verməyib. `"
+                  "`Zəhmət olmasa sahibimin aktiv olmağını gözləyin, o adətən PM'ləri qəbul edir.\n\n`"
+                  "`Bildiyim qədəri ilə o dəlilərə PM atma icazəsi vermir.`\n@AlphaUserBot")
 
 DB = connect("learning-data-root.check")
 CURSOR = DB.cursor()
 CURSOR.execute("""SELECT * FROM BRAIN1""")
 ALL_ROWS = CURSOR.fetchall()
-INVALID_PH = '\nHATA: Daxil edilən telefon nömrəsi yanlışdır' \
-             '\n  Ipucu: Ölkə kodundan istifadə edərək nömrənizi daxil edin' \
-             '\n       Telefon nömrənizi yenidən yoxlayın'
+INVALID_PH = '\nXETA: Yazılan telefon nömresi keçersizdir' \
+             '\n  Meslehet: Ölke kodundan isdifade etmekle nömreni yazın' \
+             '\n       Telefon nömrenizi yeniden yoxlayın.'
 
 for i in ALL_ROWS:
     BRAIN_CHECKER.append(i[0])
@@ -98,7 +94,7 @@ def extractCommands(file):
         dosyaAdi = file.replace('.py', '')
         CmdHelp = userbot.cmdhelp.CmdHelp(dosyaAdi, False)
 
-        # Komutları Alıyoruz #
+        # Komandaları alırıq #
         for Command in Pattern:
             Command = Command[1]
             if Command == '' or len(Command) <= 1:
@@ -120,11 +116,11 @@ def extractCommands(file):
                             KomutStr = Command
                         Komutlar.append(KomutStr)
 
-            # GoldenPY
-            Goldenpy = re.search('\"\"\"GOLDENPY(.*)\"\"\"', FileRead, re.DOTALL)
-            if not Goldenpy == None:
-                Goldenpy = Goldenpy.group(0)
-                for Satir in Goldenpy.splitlines():
+            # Golden
+            Golden = re.search('\"\"\"GOLDENPY(.*)\"\"\"', FileRead, re.DOTALL)
+            if not Golden == None:
+                Golden = Golden(0)
+                for Satir in Goldenpu.splitlines():
                     if (not '"""' in Satir) and (':' in Satir):
                         Satir = Satir.split(':')
                         Isim = Satir[0]
@@ -139,28 +135,28 @@ def extractCommands(file):
             for Komut in Komutlar:
                 # if re.search('\[(\w*)\]', Komut):
                     # Komut = re.sub('(?<=\[.)[A-Za-z0-9_]*\]', '', Komut).replace('[', '')
-                CmdHelp.add_command(Komut, None, 'Bu plugin xaricdən yüklənir. Təsvir müəyyən edilməyib.')
+                CmdHelp.add_command(Komut, None, 'Bu plugin xaricden yüklenmişdir. Her hansı bir açıqlama yoxdur.')
             CmdHelp.add()
 
 try:
     bot.start()
     idim = bot.get_me().id
-    goldenbl = requests.get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/golden.json').json()
+    goldenbl = requests.get('https://raw.githubusercontent.com/Goqerti/Alpha-UserBot/main/alphablacklist.json').json()
     if idim in goldenbl:
         bot.disconnect()
 
-    # ChromeDriver'ı Ayarlayalım #
+    # ChromeDriver'ı Ayarlayaq #
     try:
         chromedriver_autoinstaller.install()
     except:
         pass
     
-    # Galeri için değerler
-    GALERI = {}
+    # Qaleriya üçün deyerler
+    QALERIYA = {}
 
-    # PLUGIN MESAJLARI AYARLIYORUZ
+    # PLUGIN MESAJLARINI AYARLAYAQ
     PLUGIN_MESAJLAR = {}
-    ORJ_PLUGIN_MESAJLAR = {"alive": "`Byy Sahibim Məni çağirdin.? Narahat olma 🪙 GoldenUserBot İşləyir.`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`sağol mən gedirəm `🤠", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, qadağan edildi!`", "mute": "{mention}`, səssizə alındı!`", "approve": "{mention}`, mənə mesaj göndərə bilərsiniz!`", "disapprove": "{mention}`, daha mənə mesaj göndərə bilməzsən!`", "block": "{mention}`, siz bloklanmısınız!`"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": "`Alpha User Bot İşləyir⚡`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Bye Bye Mən getdim😎`", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, banlandı!`", "mute": "{mention}`, səssizləşdirildi!`", "approve": "{mention}`, mənə mesaj yazmağın üçün icazə verildi", "disapprove": "{mention}`, artıq mənə yaza bilməssən!`", "block": "{mention}`Bloklandın!🥰"}
 
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
@@ -176,7 +172,7 @@ try:
             else:
                 PLUGIN_MESAJLAR[mesaj] = dmsj
     if not PLUGIN_CHANNEL_ID == None:
-        LOGS.info("Pluginler Yüklənir")
+        LOGS.info("Pluginler Yüklenir...")
         try:
             KanalId = bot.get_entity(PLUGIN_CHANNEL_ID)
         except:
@@ -190,7 +186,7 @@ try:
                 if not os.path.exists("./userbot/modules/" + plugin.file.name):
                     dosya = bot.download_media(plugin, "./userbot/modules/")
                 else:
-                    LOGS.info("Bu Plugin Artıq Quraşdırılıb " + plugin.file.name)
+                    LOGS.info("Bu Plugin Onsuzda Yüklənib " + plugin.file.name)
                     extractCommands('./userbot/modules/' + plugin.file.name)
                     dosya = plugin.file.name
                     continue 
@@ -201,7 +197,7 @@ try:
 
                     spec.loader.exec_module(mod)
                 except Exception as e:
-                    LOGS.info(f"`Quraşdırma uğursuz oldu! Plugin nasazdır.\n\nHata: {e}`")
+                    LOGS.info(f"`Yükləmə Uğursuz! Plugin xətalıdır.\n\nXəta: {e}`")
 
                     try:
                         plugin.delete()
@@ -213,13 +209,13 @@ try:
                     continue
                 extractCommands('./userbot/modules/' + plugin.file.name)
     else:
-        bot.send_message("me", f"`Lütfən, pluginlərin daimi olduğundan əmin olun. PLUGIN_CHANNEL_ID'i təyin edin.`")
+        bot.send_message("me", f"`Zehmet olmasa pluginlerin qalıcı olması üçün PLUGIN_CHANNEL_ID'i ayarlayın.`")
 except PhoneNumberInvalidError:
     print(INVALID_PH)
     exit(1)
 
 async def FotoDegistir (foto):
-    FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
+    FOTOURL = QALERIYA_SQL.TUM_QALERIYA[foto].foto
     r = requests.get(FOTOURL)
 
     with open(str(foto) + ".jpg", 'wb') as f:
@@ -236,9 +232,9 @@ async def FotoDegistir (foto):
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info("Botunuz işləyir! İstənilən söhbətdə .alive yazaraq onu yoxlayın."
-           "Köməyə ehtiyacınız varsa, Dəstək qrupumuza gəlin t.me/GoldenSupport")
-LOGS.info(f"Bot sürümünüz: Golden {GOLDEN_VERSION}")
+LOGS.info("Botunuz işleyir! Hansısa söhbete  .alive yazaraq Test ede bilersiz!."
+          " Kömeye ehtiyacınız varsa, destek qrupuna gelin: t.me/AlphaSupportaz")
+LOGS.info(f"Bot versiyası: Alpha {ALPHA_VERSION}")
 
 """
 if len(argv) not in (1, 3, 4):
