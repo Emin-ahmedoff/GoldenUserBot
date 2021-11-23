@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# golden UserBot 
+# Asena UserBot - Yusuf Usta
 
 """ Olayları yönetmek için UserBot modülü.
  UserBot'un ana bileşenlerinden biri. """
@@ -64,7 +64,7 @@ def register(**args):
                 return
              
             if groups_only and not check.is_group:
-                await check.respond("`Bunun qrup olduğunu düşünmürəm.`")
+                await check.respond("`Bunun bir grup olduğunu sanmıyorum.`")
                 return
 
             try:
@@ -79,30 +79,30 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**USERBOT XƏTA HESABATI**\n"
-                    link = "[Golden Dəstək Qrupu](https://t.me/goldenSupportaz)"
-                    text += "İstəsəniz, xəbər verə bilərsiniz"
-                    text += f"- sadəcə bu mesajı buraya yönləndirin {link}.\n"
-                    text += "Xəta və Tarixdən başqa heç nə qeyd olunmur\n"
+                    text = "**USERBOT HATA RAPORU**\n"
+                    link = "[Asena Destek Grubu](https://t.me/AsenaSupport)"
+                    text += "İsterseniz, bunu rapor edebilirsiniz"
+                    text += f"- sadece bu mesajı buraya iletin {link}.\n"
+                    text += "Hata ve Tarih dışında hiçbir şey kaydedilmez\n"
 
-                    ftext = "========== XƏBƏRDARLIQ =========="
-                    ftext += "\nBu fayl yalnız buraya yüklənib,"
-                    ftext += "\nbiz yalnız səhv və tarix hissəsini qeyd etdik,"
-                    ftext += "\nməxfiliyinizə hörmət edirik,"
-                    ftext += "\nburada hər hansı məxfi məlumat varsa"
-                    ftext += "\nbu səhv hesabatı olmaya bilər, heç kim məlumatlarınıza daxil ola bilməz.\n"
+                    ftext = "========== UYARI =========="
+                    ftext += "\nBu dosya sadece burada yüklendi,"
+                    ftext += "\nsadece hata ve tarih kısmını kaydettik,"
+                    ftext += "\ngizliliğinize saygı duyuyoruz,"
+                    ftext += "\nburada herhangi bir gizli veri varsa"
+                    ftext += "\nbu hata raporu olmayabilir, kimse verilerinize ulaşamaz.\n"
                     ftext += "================================\n\n"
-                    ftext += "--------USERBOT XƏTA GÜNLÜYÜ--------\n"
-                    ftext += "\nTarix: " + date
-                    ftext += "\nQrup ID: " + str(check.chat_id)
-                    ftext += "\nGöndərən kişinin ID: " + str(check.sender_id)
-                    ftext += "\n\nHadisə Tətikləyicisi:\n"
+                    ftext += "--------USERBOT HATA GUNLUGU--------\n"
+                    ftext += "\nTarih: " + date
+                    ftext += "\nGrup ID: " + str(check.chat_id)
+                    ftext += "\nGönderen kişinin ID: " + str(check.sender_id)
+                    ftext += "\n\nOlay Tetikleyici:\n"
                     ftext += str(check.text)
-                    ftext += "\n\nGeri izləmə məlumatı:\n"
+                    ftext += "\n\nGeri izleme bilgisi:\n"
                     ftext += str(format_exc())
-                    ftext += "\n\nXəta mətni:\n"
+                    ftext += "\n\nHata metni:\n"
                     ftext += str(sys.exc_info()[1])
-                    ftext += "\n\n--------USERBOT XƏTA GÜNLÜYÜ BİTİŞİ--------"
+                    ftext += "\n\n--------USERBOT HATA GUNLUGU BITIS--------"
 
                     command = "git log --pretty=format:\"%an: %s\" -10"
 
@@ -122,7 +122,7 @@ def register(**args):
                     file.close()
 
                     if LOGSPAMMER:
-                        await check.client.respond("`Bağışlayın, mənim UserBot qəzaya uğradı.\
+                        await check.client.respond("`Üzgünüm, UserBot'um çöktü.\
                         \nHata günlükleri UserBot günlük grubunda saklanır.`")
 
                     await check.client.send_file(send_to,
