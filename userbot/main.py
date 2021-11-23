@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Asena UserBot - Yusuf Usta
+# Golden Userbot
 
 """ UserBot başlangıç noktası """
 import importlib
@@ -145,8 +145,8 @@ def extractCommands(file):
 try:
     bot.start()
     idim = bot.get_me().id
-    asenabl = requests.get('https://gitlab.com/Quiec/asen/-/raw/master/asen.json').json()
-    if idim in asenabl:
+    goldenbl = requests.get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/golden.json').json()
+    if idim in goldenbl:
         bot.disconnect()
 
     # ChromeDriver'ı Ayarlayalım #
