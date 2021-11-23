@@ -29,47 +29,42 @@ import re
 import userbot.cmdhelp
 
 DIZCILIK_STR = [
-    "Çıkartmayı dızlıyorum...",
-    "Yaşasın dızcılık...",
-    "Bu çıkartmayı kendi paketime davet ediyorum...",
-    "Bunu dızlamam lazım...",
-    "Hey bu güzel bir çıkartma!\nHemen dızlıyorum..",
-    "Çıkartmanı dızlıyorum\nhahaha.",
-    "Hey şuraya bak. (☉｡☉)!→\nBen bunu dızlarken...",
-    "Güller kırmızı menekşeler mavi, bu çıkartmayı paketime dızlayarak havalı olacağım...",
-    "Çıkartma hapsediliyor...",
-    "Bay dızcı bu çıkartmayı dızlıyor... ",
+    "Stickeri dızlayıram...",
+    "Sticker paketə əlavə edilir...",
+    "Bu sticker artıq mənimdir!",
+    "Bunu stickerlərimə əlavə etməliyəm... ",
+    "Sticker həps edilir...",
+    "Mən bir sticker oğrusuyam stickerin məndədi ;D!",
+    "Nə gözəl stickerdi bu!"
 ]
 
 AFKSTR = [
-    "Şu an acele işim var, daha sonra mesaj atsan olmaz mı? Zaten yine geleceğim.",
-    "Aradığınız kişi şu anda telefona cevap veremiyor. Sinyal sesinden sonra kendi tarifeniz üzerinden mesajınızı bırakabilirsiniz. Mesaj ücreti 49 kuruştur. \n`biiiiiiiiiiiiiiiiiiiiiiiiiiiiip`!",
-    "Birkaç dakika içinde geleceğim. Fakat gelmezsem...\ndaha fazla bekle.",
-    "Şu an burada değilim, muhtemelen başka bir yerdeyim.",
-    "Güller kırmızı\nMenekşeler mavi\nBana bir mesaj bırak\nVe sana döneceğim.",
-    "Bazen hayattaki en iyi şeyler beklemeye değer…\nHemen dönerim.",
-    "Hemen dönerim,\nama eğer geri dönmezsem,\ndaha sonra dönerim.",
-    "Henüz anlamadıysan,\nburada değilim.",
-    "Merhaba, uzak mesajıma hoş geldiniz, bugün sizi nasıl görmezden gelebilirim?",
-    "7 deniz ve 7 ülkeden uzaktayım,\n7 su ve 7 kıta,\n7 dağ ve 7 tepe,\n7 ovala ve 7 höyük,\n7 havuz ve 7 göl,\n7 bahar ve 7 çayır,\n7 şehir ve 7 mahalle,\n7 blok ve 7 ev...\n\nMesajların bile bana ulaşamayacağı bir yer!",
-    "Şu anda klavyeden uzaktayım, ama ekranınızda yeterince yüksek sesle çığlık atarsanız, sizi duyabilirim.",
-    "Şu yönde ilerliyorum\n---->",
-    "Şu yönde ilerliyorum\n<----",
-    "Lütfen mesaj bırakın ve beni zaten olduğumdan daha önemli hissettirin.",
-    "Sahibim burada değil, bu yüzden bana yazmayı bırak.",
-    "Burada olsaydım,\nSana nerede olduğumu söylerdim.\n\nAma ben değilim,\ngeri döndüğümde bana sor...",
-    "Uzaklardayım!\nNe zaman dönerim bilmiyorum !\nUmarım birkaç dakika sonra!",
-    "Sahibim şuan da müsait değil. Adınızı, numarınızı ve adresinizi verirseniz ona iletibilirm ve böylelikle geri döndüğü zaman.",
-    "Üzgünüm, sahibim burada değil.\nO gelene kadar benimle konuşabilirsiniz.\nSahibim size sonra döner.",
-    "Bahse girerim bir mesaj bekliyordun!",
-    "Hayat çok kısa, yapacak çok şey var...\nOnlardan birini yapıyorum...",
-    "Şu an burada değilim....\nama öyleysem ...\n\nbu harika olmaz mıydı?",
+    "İndi burda deyiləm gələndə yazaram.",
+    "Sahibim burda deyil gözlə gələndə yazar.",
+    "Sahibim istirahətdədi onu narahat eləmə :)",
+    "Zəng etdiyiniz şəxsə zəng çatmır, telefon ya söndürülüb yada əhatə dairəsi xaricindədir xaiş olunur daha sonra təkrar cəhd edin.",
+    "Gizlenqaç oynayıram sakit durrr",
+    "Bəli?",
+    "Salam mən sahibimin meneceriyəm\nBuyurun istəklərinizi mənə deyə bilərsiz. Sizin üçün sahibimə çatdıraram.",
+    "Hələdə anlamadınsa burda deyiləm.",
+    "Salam, uzaq mesajıma xoş gəldiniz, sizə necə kömək edə bilərəm?",
+    "Mən sahibimin xüsusi botuyam!, sizdə bot istəyirsizsə: @AlphaUserBot",
+    "Hal hazırda burdan çoox uzaqdayam.\nQışqırsan bəlkə eşitdim.",
+    "Bu tərəfə gedirəm\n---->",
+    "Bu tərəfə gedirəm\n<----",
+    "Zəhmət olmasa mesajınızı yazın sahibim gələndə sizə cavab yazar.",
+    "Sahibim burda deyil mənə yazmağı kəs artıq.",
+    "Sahibim işi var onu narahat eləmə. O iş görərkən onu narahat etmək onu əsəbləşdirir:)",
+    "Sahibim burda deyil. O gələnə qədər mənimlə danışa bilərsiz.",
+    "Belə gözəl bir gündə niyə məni narahat edirsən?",
+    "Sahibimə mesaj atmaq üçün zəhmət olmasa aşağıdakıları yazın:\nAdınız:\nSoyadınız:\nİsdifadəçi Adınız:\n\nƏgər yuxarıadakıları düzgün yazdızsa sahibim ən qısa zamanda sizə yazacaq.",
+    "Hal hazırda burdayam amma mesajını görməzdən gələcəm :)",
 ]
 
-UNAPPROVED_MSG = ("`Hey,` {mention}`! Bu bir bot. Endişelenme.\n\n`"
-                  "`Sahibim sana PM atma izni vermedi. `"
-                  "`Lütfen sahibimin aktif olmasını bekleyin, o genellikle PM'leri onaylar.\n\n`"
-                  "`Bildiğim kadarıyla o kafayı yemiş insanlara PM izni vermiyor.`")
+UNAPPROVED_MSG = ("`Hey,` {mention}`! Bu bir bot. Narahat olma.\n\n`"
+                  "`Sahibim sənə PM atma icazəsi verməyib. `"
+                  "`Zəhmət olmasa sahibimin aktiv olmağını gözləyin, o adətən PM'ləri qəbul edir.\n\n`"
+                  "`Bildiyim qədəri ilə o dəlilərə PM atma icazəsi vermir.`\n@AlphaUserBot")
 
 DB = connect("learning-data-root.check")
 CURSOR = DB.cursor()
