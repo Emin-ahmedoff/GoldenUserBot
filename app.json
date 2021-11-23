@@ -10,9 +10,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/Emin-ahmedoff/GoldUserbot",
+  "repository": "https://github.com/Emin-ahmedoff/GoldenUserbot",
   "website":   "https://quiec.tech",
-  "success_url": "https://t.me/GoldenSupport",
+  "success_url": "https://t.me/GoldenSupportaz",
   "stack": "container",
   "env": {
     "API_KEY": {
