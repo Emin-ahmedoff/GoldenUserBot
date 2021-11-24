@@ -116,6 +116,29 @@ class FlagContainer:
 
 status = (
 "Həyatda ən gözəl xoşbəxtlik, sevildiyindən əmin olmaqdır.",
+"Ürəyi gözəl olanın, qisməti də gözəl olar.",
+"Mənə baxıb niyə gülürsən? Güldüyüm başıma gəlsin deyə.",
+"Vardır əlbət, hər kəsi  gecələr darıxdığı birisi.",
+"Ayağına batan tikanlar, axtardığın güllərdən xəbər verir.",
+"Başladığın cümləni özün bitirməsən, bir başqası gəlib nöqtəni qoyar.",
+"Sirrini küləyə açırsansa, küləyi, sənin sirrini açdığına görə günahlandırmamalısan.",
+"Həddini bilmədikdən sonra, çox şey bilmək mənasızdır. Susqunluq heç kimi çaşdırmasın, çünki susan danışsa dözən olmaz.",
+"Heç kimi gözündə kiçiltmə! Gün gələr , gözündə kiçik gördüyün hər şey üçün böyük bədəllər ödəyərsən.",
+"Hər zaman doğrunu söylə; nə dediyini xatırlamaq məcburiyyətində qalmarsan",
+"Sevəcək qədər gözəl olmaqdansa, güvəniləcək qədər qeyrətli ol!",
+"Xatirə keçmişin həqiqəti, ümid isə gələcəyin xəyalıdır.",
+"Səni həyatının sonunadək qınayacaqlar. Ona görə də istədiyin kimi yaşa…",
+"O qədərini də etməz deyə düşündüyüm hər kəs, tam olaraq da o qədərini etdi",
+"Dürüst olmadıqca itirə-itirə gedəcəksiniz. Hər gün bir şeyinizi, bir gün hər şeyinizi!",
+"Bəzilərinə sadəcə bunu demək istəyirəm: Bağışlayın səhv tanımışam.",
+"Yazması belə çətin olan şeyləri yaşamaq var bir də.. Bilmirsiz!",
+"Məsafə yaxşıdır: Nə həddini aşan var, nə də ki canını sıxan.",
+"Mən keçmişimi bükdüm və qaldırıb zibilə atdım, bu zibilləri isə ancaq; pişiklər və itlər qarışdırar!",
+"Tanrı sənə nəsə bir hədiyyə göndərəndə onu bir problemə bükür. Və problem nə qədər böyükdürsə içindəki hədiyyə də o qədər böyükdür..",
+"Mənzərə nə qədər gözəl olsa da, sizə zərər verən pəncərələri bağlayın.",
+"Heç kim sizi dəyərsiz hiss etdirə bilməz siz icazə vermədikcə.",
+"Yaxşılıq etməyə davam et. Qarşındakı o yaxşılığa layiq olmasa belə, sən bu yaxşılığa layiqsən.",
+"Ümidin olduğu yerdə, möcüzələr çiçək açar.",
 "Xeyirlisi deyə bir söz var. Bütün Aminlər, Bütün inşAllahlar, bütün dualar onun içində."
 )
 
