@@ -15,7 +15,7 @@ from telethon.tl.types import ChannelParticipantsAdmins as cp
 from time import sleep
 from userbot.cmdhelp import CmdHelp
 
-@r(outgoing=True, pattern="^.all(?: |$)(.*)")
+@register(outgoing=True, pattern="^.all(?: |$)(.*)")
 async def _(q):
 	if q.fwd_from:
 		return
@@ -36,7 +36,7 @@ async def _(q):
 		sleep(4)
 
 
-@r(outgoing=True, pattern="^.alladmin(?: |$)(.*)")
+@register(outgoing=True, pattern="^.alladmin(?: |$)(.*)")
 async def _(q):
 	if q.fwd_from:
 		return
