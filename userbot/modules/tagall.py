@@ -178,13 +178,13 @@ async def kfrtag(event):
           FlagContainer.is_active = False
 
 CmdHelp("tagall").add_command(
-	"all", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+	"all", "<sebep>", "Qrupdakı Userleri Tək-Tək Tağ edər."
 ).add_command(
-	"alladmin", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+	"alladmin", "<sebep>", "Qrupdakı Adminləri Tək-Tək Tağ edər."
 ).add_command(
-	"emojitag", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+	"emojitag", "<sebep>", "Qrupdakı Üyeleri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
-	"stoptag", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+	"stoptag", "<sebep>", "Qrupdakı Üyeleri Emojili Bir Şekilde Etiketler."
 ).add_command(
     "kill all", None, "Etiketleme işlemini durdurur."
 ).add()
