@@ -8,10 +8,32 @@ from math import sqrt
 from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipantsRequest
 from telethon.utils import get_input_location
 from userbot.cmdhelp import CmdHelp
-
+import asyncio
+from asyncio import sleep
+from telethon.errors import (
+    ChannelInvalidError,
+    ChannelPrivateError,
+    ChannelPublicGroupNaError,
+)
+from telethon.tl import functions
+from asyncio import sleep
+from telethon.errors import (
+    ChatAdminRequiredError,
+    FloodWaitError,
+    MessageNotModifiedError,
+    UserAdminInvalidError,
+)
+from telethon.tl import functions
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import (
+    ChannelParticipantsAdmins,
+    ChannelParticipantsKicked,
+    ChatBannedRights,
+)
 import logging
 from telethon.tl.functions.messages import GetFullChatRequest
 from userbot import bot, BOTLOG, BOTLOG_CHATID, SUDO_ID
+
 
 @register(outgoing=True, pattern="^.addmember ?(.*)", groups_only=True, disable_errors=True)
 @register(incoming=True, from_users=SUDO_ID, pattern="^.addmember ?(.*)", disable_errors=True)
