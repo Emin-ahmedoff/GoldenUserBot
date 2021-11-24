@@ -35,7 +35,7 @@ async def _(q):
 		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
 		sleep(4)
 
-@register(outgoing=True, pattern="^.all$")
+@register(outgoing=True, pattern="^.toplutag$")
 async def _(event):
     if event.fwd_from:
         return
