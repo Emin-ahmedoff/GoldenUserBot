@@ -67,7 +67,7 @@ class FlagContainer:
 
 
 
-@register(outgoing=True, pattern="^.etag.*")
+@register(outgoing=True, pattern="^.emojitag.*")
 async def b(event):
     if event.fwd_from or FlagContainer.is_active:
         return
@@ -110,8 +110,14 @@ async def m_fb(event):
     await event.delete()
     FlagContainer.is_active = False
 
-CmdHelp("jemall").add_command(
-	"jemall", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+CmdHelp("tagall").add_command(
+	"all", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+).add_command(
+	"alladmin", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+)add_command(
+	"emojitag", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
+)add_command(
+	"stoptag", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
 ).add_command(
     "kill all", None, "Etiketleme işlemini durdurur."
 ).add()
