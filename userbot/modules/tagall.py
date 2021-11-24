@@ -196,9 +196,9 @@ CmdHelp("tagall").add_command(
 ).add_command(
 	"alladmin", "<sebep>", "Qrupdakı Adminləri Tək-Tək Tağ edər."
 ).add_command(
-	"emojitag", "<sebep>", "Qrupdakı Üyeleri Emojili Bir Şəkilde Tağ edər."
+	"emojitag", "<sebep>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
-	"stoptag", "<sebep>", "Qrupdakı Üyeleri Emojili Bir Şekilde Etiketler."
+	"stoptag",  "Emojili və Statuslu Tağı dayandirar."
 ).add_command(
-    "kill all", None, "Etiketleme işlemini durdurur."
+    "stoptag", None, "Etiketleme işlemini durdurur."
 ).add()
