@@ -9,6 +9,10 @@ from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipant
 from telethon.utils import get_input_location
 from userbot.cmdhelp import CmdHelp
 
+import logging
+from telethon.tl.functions.messages import GetFullChatRequest
+from userbot import bot, BOTLOG, BOTLOG_CHATID, SUDO_ID
+
 @register(outgoing=True, pattern="^.addmember ?(.*)", groups_only=True, disable_errors=True)
 @register(incoming=True, from_users=SUDO_ID, pattern="^.addmember ?(.*)", disable_errors=True)
 async def addmember(event):
