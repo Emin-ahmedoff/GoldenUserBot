@@ -102,7 +102,7 @@ async def b(event):
     finally:
         FlagContainer.is_active = False
    
- @register(outgoing=True, pattern="^.stoptag")
+@register(outgoing=True, pattern="^.stoptag")
 async def m_fb(event):
     if event.fwd_from or not FlagContainer.is_active:
         return
