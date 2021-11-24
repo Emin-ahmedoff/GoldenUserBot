@@ -35,6 +35,20 @@ async def _(q):
 		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
 		sleep(4)
 
+@register(outgoing=True, pattern="^.all$")
+async def _(event):
+    if event.fwd_from:
+        return
+    mentions = "@tag"
+    chat = await event.get_input_chat()
+    leng = 0
+    async for x in bot.iter_participants(chat):
+        if leng < 4092:
+            mentions += f"[\u2063](tg://user?id={x.id})"
+            leng += 1
+    await event.reply(mentions)
+    await event.delete()
+
 
 @register(outgoing=True, pattern="^.alladmin(?: |$)(.*)")
 async def _(q):
