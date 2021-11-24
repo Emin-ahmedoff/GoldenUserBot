@@ -35,7 +35,7 @@ async def _(q):
 		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
 		sleep(4)
 
-@register(outgoing=True, pattern="^.stopall")
+@register(outgoing=True, pattern="^.stoptag")
 async def m_fb(event):
     if event.fwd_from or not FlagContainer.is_active:
         return
