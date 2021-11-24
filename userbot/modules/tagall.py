@@ -114,9 +114,9 @@ CmdHelp("tagall").add_command(
 	"all", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
 ).add_command(
 	"alladmin", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
-)add_command(
+).add_command(
 	"emojitag", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
-)add_command(
+).add_command(
 	"stoptag", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
 ).add_command(
     "kill all", None, "Etiketleme işlemini durdurur."
