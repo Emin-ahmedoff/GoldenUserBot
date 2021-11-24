@@ -1,7 +1,7 @@
 # Faster & Secure & Special Container #
 # Thanks to mkaraniya & zakaryan2004
 
-FROM emin-ahmedoff/goldenuserbot:latest
+FROM fusuf/asenauserbot:latest
 RUN git clone https://github.com/Emin-ahmedoff/GoldenUserBot /root/GoldenUserBot
 WORKDIR /root/GoldenUserBot/
 RUN pip3 install -r requirements.txt
