@@ -198,7 +198,7 @@ CmdHelp("tagall").add_command(
 ).add_command(
 	"emojitag", "<sebep>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
-	"stoptag",  "Emojili və Statuslu Tağı dayandirar."
+	"statustag",  "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
-    "stoptag", None, "Etiketleme işlemini durdurur."
+    "stoptag", None, "Emojili və Statuslu Tağı dayandirar."
 ).add()
