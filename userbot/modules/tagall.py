@@ -110,6 +110,50 @@ async def m_fb(event):
     await event.delete()
     FlagContainer.is_active = False
 
+class FlagContainer:
+    is_active = False
+
+
+status = (
+"Həyatda ən gözəl xoşbəxtlik, sevildiyindən əmin olmaqdır.",
+"Xeyirlisi deyə bir söz var. Bütün Aminlər, Bütün inşAllahlar, bütün dualar onun içində."
+)
+
+@register(outgoing=True, pattern="^.statustag.*")
+async def kfrtag(event):
+      if event.fwd_from or FlagContainer.is_active:
+          return
+      try:
+          FlagContainer.is_active = True
+  
+          sozcm = None
+          jokisback = event.message.text.split(" ", 1)
+          if len(jokisback) > 1:
+              sozcm = jokisback[1]
+  
+          chat = await event.get_input_chat()
+          await event.delete()
+  
+          tags = list(map(lambda m: f"[{random.choice(status)}](tg://user?id={m.id})", await event.client.get_participants(chat)))
+          current_pack = []
+          async for participant in event.client.iter_participants(chat):
+              if not FlagContainer.is_active:
+                  break
+  
+              current_pack.append(participant)
+  
+              if len(current_pack) == 1: 
+                  tags = list(map(lambda m: f"[{random.choice(status)}](tg://user?id={m.id})", current_pack))
+                  current_pack = []
+  
+                  if sozcm:
+                      tags.append(sozcm)
+  
+                  await event.client.send_message(event.chat_id, " ".join(tags))
+                  await asyncio.sleep(1.5) 
+      finally:
+          FlagContainer.is_active = False
+
 CmdHelp("tagall").add_command(
 	"all", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
 ).add_command(
