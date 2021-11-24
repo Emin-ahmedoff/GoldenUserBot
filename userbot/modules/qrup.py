@@ -47,17 +47,17 @@ async def addmember(event):
     usrtr = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await event.edit("`Bura istifadəçi əlavə edə bilmərəm 🦍`")
+        return await event.edit("`Bura istifadəçi əlavə edə bilmərəm🥺`")
     s = 0
     f = 0
     error = "None"
 
-    await event.edit("[U S Σ R Δ T O R]:\n\n`İstifadəçilər toplanılır...`")
+    await event.edit("[GOLDEN]:\n\n`İstifadəçilər toplanılır...`")
     async for user in bot.iter_participants(usrtr.full_chat.id):
         try:
             if error.startswith("Too"):
                 await event.edit(
-                    f"[U S Σ R Δ T O R]\nXəta baş verdi və proses dayandırıldı(`Telethon limiti keçildi, daha sonra yenidən cəhd edin`)\n**Xəta** : \n`{error}`\n\n✔️ `{s}` nəfər dəvət olundu\n❌ `{f}`  nəfər dəvət edilə bilmədi")
+                    f"[GOLDEN]\nXəta baş verdi və proses dayandırıldı(`Telethon limiti keçildi, daha sonra yenidən cəhd edin`)\n**Xəta** : \n`{error}`\n\n✔️ `{s}` nəfər dəvət olundu\n❌ `{f}`  nəfər dəvət edilə bilmədi")
                 if BOTLOG_CHATID is not None:
                     await bot.send_message(BOTLOG_CHATID, "#ADDMEMBER\n"
             f"UĞURLU**{s}** hesab(lar) !!\
@@ -69,14 +69,14 @@ async def addmember(event):
             s = s + 1
             await sleep(1.5)
             await event.edit(
-                f"[U S Σ R Δ T O R]:\n\n•İstifadəçilər dəvət olunur...\n•  **Uğursuz:** `{f}` nəfər\n\n**×Son Uğursuz:** `{error}`"
+                f"[GOLDEN]:\n\n•İstifadəçilər dəvət olunur...\n•  **Uğursuz:** `{f}` nəfər\n\n**×Son Uğursuz:** `{error}`"
             )
             asyncio.sleep(2.5)
         except Exception as e:
             error = str(e)
             f = f + 1
     return await event.edit(
-        f"[U S Σ R Δ T O R]: \n\n✔️ `{s}` nəfər {event.chat.title} qrupuna dəvət olundu\n❌ {f} nəfər dəvət edilə bilmədi "
+        f"[GOLDEN]: \n\n✔️ `{s}` nəfər {event.chat.title} qrupuna dəvət olundu\n❌ {f} nəfər dəvət edilə bilmədi "
     )
 
 # FORKED FROM https://github.com/alcyper/alcyper #
