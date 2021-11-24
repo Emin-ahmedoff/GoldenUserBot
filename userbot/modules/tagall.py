@@ -6,26 +6,13 @@
 
 # Gold UserBot 
 
-# @NaytSeyd tarafından portlanmıştır.
-#
-
-from telethon.tl.types import ChannelParticipantsAdmins
-from userbot import CMD_HELP, bot
+import random
+import asyncio
 from userbot.events import register
-from userbot.cmdhelp import CmdHelp
-
- import time
-import requests
-
-from collections import deque
-from telethon import events
-from telethon.tl.types import ChannelParticipantsAdmins
-from asyncio import sleep
-from random import choice, getrandbits, randint
-from re import sub
 from userbot import CMD_HELP, bot
-from userbot.events import register
-from userbot.modules.admin import get_user_from_event
+from userbot import GOLDEN_VERSION
+from telethon.tl.types import ChannelParticipantsAdmins as cp
+from time import sleep
 from userbot.cmdhelp import CmdHelp
 
 
