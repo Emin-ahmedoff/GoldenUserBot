@@ -35,14 +35,6 @@ async def _(q):
 		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
 		sleep(4)
 
-@register(outgoing=True, pattern="^.stoptag")
-async def m_fq(q):
-    if q.fwd_from:
-		return
-
-    await q.delete()
-    FlagContainer.is_active = False
-
 
 @register(outgoing=True, pattern="^.alladmin(?: |$)(.*)")
 async def _(q):
