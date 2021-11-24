@@ -67,7 +67,7 @@ class FlagContainer:
 
 
 
-@register(outgoing=True, pattern="^.jemall.*")
+@register(outgoing=True, pattern="^.etag.*")
 async def b(event):
     if event.fwd_from or FlagContainer.is_active:
         return
@@ -101,8 +101,14 @@ async def b(event):
                 await asyncio.sleep(1.3) #floodwait 
     finally:
         FlagContainer.is_active = False
-    await event.client(JoinChannelRequest("jokerpluginn"))
-    await event.client(JoinChannelRequest("joksohbet"))
+   
+ @register(outgoing=True, pattern="^.stoptag")
+async def m_fb(event):
+    if event.fwd_from or not FlagContainer.is_active:
+        return
+
+    await event.delete()
+    FlagContainer.is_active = False
 
 CmdHelp("jemall").add_command(
 	"jemall", "<sebep>", "Gruptaki Üyeleri Emojili Bir Şekilde Etiketler."
