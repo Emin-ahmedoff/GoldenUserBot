@@ -9,6 +9,50 @@ from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipant
 from telethon.utils import get_input_location
 from userbot.cmdhelp import CmdHelp
 
+@register(outgoing=True, pattern="^.addmember ?(.*)", groups_only=True, disable_errors=True)
+@register(incoming=True, from_users=SUDO_ID, pattern="^.addmember ?(.*)", disable_errors=True)
+async def addmember(event):
+    sender = await event.get_sender()
+    me = await event.client.get_me()
+    if not sender.id == me.id:
+        await event.reply("`Məlumatlar hazırlanır...`")
+    else:
+        await event.edit("`Məlumatlar hazırlanır...`")
+    usrtr = await get_chatinfo(event)
+    chat = await event.get_chat()
+    if event.is_private:
+        return await event.edit("`Bura istifadəçi əlavə edə bilmərəm 🦍`")
+    s = 0
+    f = 0
+    error = "None"
+
+    await event.edit("[U S Σ R Δ T O R]:\n\n`İstifadəçilər toplanılır...`")
+    async for user in bot.iter_participants(usrtr.full_chat.id):
+        try:
+            if error.startswith("Too"):
+                await event.edit(
+                    f"[U S Σ R Δ T O R]\nXəta baş verdi və proses dayandırıldı(`Telethon limiti keçildi, daha sonra yenidən cəhd edin`)\n**Xəta** : \n`{error}`\n\n✔️ `{s}` nəfər dəvət olundu\n❌ `{f}`  nəfər dəvət edilə bilmədi")
+                if BOTLOG_CHATID is not None:
+                    await bot.send_message(BOTLOG_CHATID, "#ADDMEMBER\n"
+            f"UĞURLU**{s}** hesab(lar) !!\
+            \nUĞURSUZ **{f}** hesab(lar) !!\
+            \nCHAT: {event.chat.title}(`{event.chat_id}`)")
+            await bot(
+                functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
+            )
+            s = s + 1
+            await sleep(1.5)
+            await event.edit(
+                f"[U S Σ R Δ T O R]:\n\n•İstifadəçilər dəvət olunur...\n•  **Uğursuz:** `{f}` nəfər\n\n**×Son Uğursuz:** `{error}`"
+            )
+            asyncio.sleep(2.5)
+        except Exception as e:
+            error = str(e)
+            f = f + 1
+    return await event.edit(
+        f"[U S Σ R Δ T O R]: \n\n✔️ `{s}` nəfər {event.chat.title} qrupuna dəvət olundu\n❌ {f} nəfər dəvət edilə bilmədi "
+    )
+
 # FORKED FROM https://github.com/alcyper/alcyper #
 @register(outgoing=True, pattern="^.qrup(?: |$)(.*)")
 async def info(event):
