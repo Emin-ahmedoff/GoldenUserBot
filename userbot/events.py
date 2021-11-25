@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Asena UserBot - Yusuf Usta
+# Golden Userbot
 
 """ Olayları yönetmek için UserBot modülü.
  UserBot'un ana bileşenlerinden biri. """
@@ -80,7 +80,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**USERBOT HATA RAPORU**\n"
-                    link = "[Asena Destek Grubu](https://t.me/AsenaSupport)"
+                    link = "[Golden Dəstək Qrupu](https://t.me/GoldenSupportaz)"
                     text += "İsterseniz, bunu rapor edebilirsiniz"
                     text += f"- sadece bu mesajı buraya iletin {link}.\n"
                     text += "Hata ve Tarih dışında hiçbir şey kaydedilmez\n"
