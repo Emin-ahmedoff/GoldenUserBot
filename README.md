@@ -3,7 +3,7 @@
 ----
 
 <div align="center">
-  <img src="https://i.imgyukle.com/2020/05/29/yBpJsP.jpg" width="200" height="200">
+  <img src="https://te.legra.ph/file/d0826cc68e95801775699.jpg" width="200" height="200">
   <h1>Golden UserBot</h1>
 </div>
 <p align="center">
