@@ -290,7 +290,7 @@ with bot:
     if OTOMATIK_KATILMA:
         try:
             bot(JoinChannelRequest("@GoldenUserBot"))
-            bot(JoinChannelRequest("@GoldenUserBotplugin"))
+            bot(JoinChannelRequest("@Goldensupportaz"))
         except:
             pass
 
@@ -304,7 +304,7 @@ with bot:
             if not event.message.from_id == uid:
                 await event.reply(f'`Salam mən` @GoldenUserBot`! Mən sahibimə (`@{me.username}`) kömək etmək üçün varam, yəni sənə kömək edə bilmərəm :/ Ama sen de bir GoldenUserBot açabilərsən; Qrupa bax` @GoldenUserBot')
             else:
-                await event.reply(f'`Tengri save Azeri! GoldenUserBot working... 🐺`')
+                await event.reply(f'`GoldenUserBot working...😊`')
 
         @tgbot.on(InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
