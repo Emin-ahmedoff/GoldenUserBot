@@ -1,14 +1,11 @@
-# Copyright (C) 2020 Yusuf Usta.
+# Copyright (C) 2020 
 #
 # Licensed under the  GPL-3.0 License;
 # you may not use this file except in compliance with the License.
 #
 
-# Asena UserBot - Yusuf Usta
+# Golden userbot
 
-# @NaytSeyd tarafından portlanmıştır.
-# @frknkrc44 tarafından düzenlenmiştir.
-# @Fusuf tarafından AutoVideo yazılmıştır.
 
 import os
 from datetime import datetime
