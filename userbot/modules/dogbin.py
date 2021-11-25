@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Asena UserBot - Yusuf Usta
+# Golden Userbot
 
 
 """ Dogbin ile etkileşim için komutlar içeren UserBot modülü(https://del.dog)"""
