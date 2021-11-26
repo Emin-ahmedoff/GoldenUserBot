@@ -115,17 +115,20 @@ async def b(event):
                 await asyncio.sleep(1.3) #floodwait 
     finally:
         FlagContainer.is_active = False
-   
+
 @register(outgoing=True, pattern="^.stoptag")
 async def m_fq(q):
     if q.fwd_from:
-		return
+        return
 
     await q.delete()
     FlagContainer.is_active = False
 
-#ebaslatnğic
+#ebaslanğic
 
+
+class FlagContainer:
+    is_active = False
 
 class FlagContainer:
     is_active = False
