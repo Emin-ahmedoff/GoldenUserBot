@@ -124,7 +124,7 @@ async def m_fq(q):
     await q.delete()
     FlagContainer.is_active = False
 
-#ebaslanğic
+#ebaslatnğic
 
 
 class FlagContainer:
