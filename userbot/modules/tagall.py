@@ -118,6 +118,7 @@ async def b(event):
    
 @register(outgoing=True, pattern="^.stoptag")
 async def m_fb(event):
+   await event.edit("⛔ **Tağ prosesi dayandırıldı**")
     if event.fwd_from or not FlagContainer.is_active:
         return
 
