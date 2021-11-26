@@ -117,11 +117,15 @@ async def b(event):
         FlagContainer.is_active = False
    
 @register(outgoing=True, pattern="^.stoptag")
-async def m_fb(event):
-  if event.fwd_from or not FlagContainer.is_active:
-        return
-await event.delete()
+async def m_fq(q):
+    if q.fwd_from:
+		return
+
+    await q.delete()
     FlagContainer.is_active = False
+
+#ebaslanğic
+
 
 class FlagContainer:
     is_active = False
