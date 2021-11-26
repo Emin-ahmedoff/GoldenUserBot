@@ -120,8 +120,7 @@ async def b(event):
 async def m_fb(event):
   if event.fwd_from or not FlagContainer.is_active:
         return
-
-    await event.delete()
+await event.delete()
     FlagContainer.is_active = False
 
 class FlagContainer:
