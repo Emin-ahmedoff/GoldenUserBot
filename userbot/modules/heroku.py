@@ -12,7 +12,6 @@ from userbot import (
     HEROKU_APIKEY,
     BOTLOG,
     BOTLOG_CHATID,
-    ALIVE_NAME
 )
 
 from userbot.events import register
@@ -178,7 +177,7 @@ async def dyno_usage(dyno):
                 f"┣✠╼━━━━━━❖━━━━━━━✠\n"   
                 f"┣[• Təxmini bitmə müddəti🤭\n"
                 f"┣[• ▸ {day} gün\n"
-                f"┣[• 👮Sahibim: {ALIVE_NAME} \n"
+                f"┣[• 👮Sahibim:\n"
                 f"╰✠╼━━━━━━❖━━━━━━━✠╯\n"
                           )
 
@@ -196,7 +195,6 @@ async def _(dyno):
         entity=dyno.chat_id,
         file="logs.txt",
         thumb="userbot/log/goldenlogs.jpg",
-        caption="**Bu {ALIVE_NAME}-nin Heroku Qeydidir**",
     )
     await dyno.delete()
     return os.remove("logs.txt")
