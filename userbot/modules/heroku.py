@@ -166,7 +166,7 @@ async def dyno_usage(dyno):
     return await dyno.edit(
                 f"⇰           Dyno Məlumatları:⇩ \n"
                 f"⇰     Heroku Ap Adiniz ♚ {app.name} \n"
-                f"⇰                              \n
+                f"⇰                              \n"
                 f"⇰  ✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮ \n"
                 f"⇰                               \n"
                 f"⇰   İstifadə olunan Dyno🥺: \n"
