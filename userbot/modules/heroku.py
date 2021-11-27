@@ -117,7 +117,6 @@ async def set_var(var):
 
 """Hesabınızdakı dynonu yoxlamağa yarayan userbot modulu"""
 
-@register(incoming=True, husu=True, pattern=r"^Nə qədər dyno qalıb?$")
 @register(outgoing=True, pattern=r"^.dyno(?: |$)")
 async def dyno_usage(dyno):
     """Bu qisimdə bot istifadə edilmiş dynonu əldə etməyə çalışır"""
