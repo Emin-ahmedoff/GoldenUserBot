@@ -1,14 +1,7 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# Golden UserBot
 
 
 """
-Bu modül commit sayısına bağlı olarak botu günceller.
+Yenilənmə
 """
 
 from os import remove, execle, path, environ
@@ -18,7 +11,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import CMD_HELP, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL
+from userbot import CMD_HELP, HEROKU_APIKEY, HEROKU_APPNAME, BRAIN_CHECKER, UPSTREAM_REPO_URL
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
@@ -32,6 +25,15 @@ LANG = get_value("updater")
 
 # ████████████████████████████████ #
 
+
+async def gen_chlog(repo, diff):
+    ch_log = ''
+    d_form = "%d/%m/%y"
+    for c in repo.iter_commits(diff):
+        ch_log += f'•[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n'
+    return ch_log
+
+
 async def update_requirements():
     reqs = str(requirements_path)
     try:
@@ -44,139 +46,45 @@ async def update_requirements():
     except Exception as e:
         return repr(e)
 
-
-async def deploy(event, repo, ups_rem, ac_br, txt):
-    if HEROKU_API_KEY is not None:
-        import heroku3
-        heroku = heroku3.from_key(HEROKU_API_KEY)
-        heroku_app = None
-        heroku_applications = heroku.apps()
-        if HEROKU_APP_NAME is None:
-            await event.edit(
-                '`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `'
-                ' untuk dapat deploy perubahan terbaru dari Alpha.`'
-            )
-            repo.__del__()
-            return
-        for app in heroku_applications:
-            if app.name == HEROKU_APP_NAME:
-                heroku_app = app
-                break
-        if heroku_app is None:
-            await event.edit(
-                f'{txt}\n`Kredensial Heroku tidak valid untuk deploy Alpha dyno.`'
-            )
-            return repo.__del__()
-        await event.edit('`[HEROKU]:'
-                         '\nDyno Alpha Sedang Dalam Proses, Mohon Menunggu 7-8 Menit`'
-                         )
-        ups_rem.fetch(ac_br)
-        repo.git.reset("--hard", "FETCH_HEAD")
-        heroku_git_url = heroku_app.git_url.replace(
-            "https://", "https://api:" + HEROKU_API_KEY + "@")
-        if "heroku" in repo.remotes:
-            remote = repo.remote("heroku")
-            remote.set_url(heroku_git_url)
-        else:
-            remote = repo.create_remote("heroku", heroku_git_url)
-        try:
-            remote.push(refspec="HEAD:refs/heads/master", force=True)
-        except GitCommandError as error:
-            await event.edit(f'{txt}\n`Terjadi Kesalahan Di Log:\n{error}`')
-            return repo.__del__()
-        build = app.builds(order_by="created_at", sort="desc")[0]
-        if build.status == "failed":
-            await event.edit(
-                "`Build Gagal!\n" "Dibatalkan atau ada beberapa kesalahan...`"
-            )
-            await asyncio.sleep(5)
-            return await event.delete()
-        else:
-            await event.edit("`Alpha Berhasil Di Deploy!\n" "Restarting, Mohon Menunggu.....`")
-            await asyncio.sleep(15)
-            await event.delete()
-
-        if BOTLOG:
-            await event.client.send_message(
-                BOTLOG_CHATID, "#BOT \n"
-                "`Alpha Berhasil Di Update`")
-
-    else:
-        await event.edit('`[HEROKU]:'
-                         '\nHarap Siapkan Variabel` **HEROKU_API_KEY** `.`'
-                         )
-        await asyncio.sleep(10)
-        await event.delete()
-    return
-
-
-async def update(event, repo, ups_rem, ac_br):
-    try:
-        ups_rem.pull(ac_br)
-    except GitCommandError:
-        repo.git.reset("--hard", "FETCH_HEAD")
-    await update_requirements()
-    await event.edit('**⚙️ Alpha** `Berhasil Di Update!`')
-    await asyncio.sleep(1)
-    await event.edit('**⚙️ Alpha** `Di Restart....`')
-    await asyncio.sleep(1)
-    await event.edit('`Mohon Menunggu Beberapa Detik ツ`')
-    await asyncio.sleep(10)
-    await event.delete()
-
-    if BOTLOG:
-        await event.client.send_message(
-            BOTLOG_CHATID, "#BOT \n"
-            "**Alpha Telah Di Perbarui ツ**")
-        await asyncio.sleep(100)
-        await event.delete()
-
-    # Spin a new instance of bot
-    args = [sys.executable, "-m", "userbot"]
-    execle(sys.executable, *args, environ)
-    return
-
-
-@ register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
-async def upstream(event):
-    "For .update command, check if the bot is up to date, update if specified"
-    await event.edit("`Mengecek Pembaruan, Silakan Menunggu....`")
-    conf = event.pattern_match.group(1)
+@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.gyenilə(?: |$)(.*)")
+async def upstream(ups):
+    ".update əmri ilə botunun yenk versiyada olub olmadığını yoxlaya bilərsiz."
+    await ups.edit(LANG['DETECTING'])
+    conf = ups.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
+
     try:
-        txt = "`Maaf Pembaruan Tidak Dapat Di Lanjutkan Karna "
-        txt += "Beberapa Masalah Terjadi`\n\n**LOGTRACE:**\n"
+        txt = "`Yenilənmə uğursuz oldu! Bəzi problemlərlə qarşılaşdım.`\n\n**LOG:**\n"
         repo = Repo()
     except NoSuchPathError as error:
-        await event.edit(f'{txt}\n`Directory {error} Tidak Dapat Di Temukan`')
-        return repo.__del__()
+        await ups.edit(f'{txt}\n`{error} {LANG["NOT_FOUND"]}.`')
+        repo.__del__()
+        return
     except GitCommandError as error:
-        await event.edit(f'{txt}\n`Gagal Awal! {error}`')
-        return repo.__del__()
+        await ups.edit(f'{txt}\n`{LANG["GIT_ERROR"]} {error}`')
+        repo.__del__()
+        return
     except InvalidGitRepositoryError as error:
-        if conf is None:
-            return await event.edit(
-                f"`Sayangnya, Directory {error} Tampaknya Bukan Dari Repo."
-                "\nTapi Kita Bisa Memperbarui Paksa Userbot Menggunakan .update now.`"
+        if conf != "now":
+            await ups.edit(
+                f"`{error} {LANG['NOT_GIT']}`"
             )
+            return
         repo = Repo.init()
-        origin = repo.create_remote("upstream", off_repo)
+        origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head("master", origin.refs.master)
-        repo.heads.master.set_tracking_branch(origin.refs.master)
-        repo.heads.master.checkout(True)
+        repo.create_head('master', origin.refs.seden)
+        repo.heads.dto.set_tracking_branch(origin.refs.sql)
+        repo.heads.dto.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != UPSTREAM_REPO_BRANCH:
-        await event.edit(
-            '**[UPDATER]:**\n'
-            f'`Looks like you are using your own custom branch ({ac_br}). '
-            'in that case, Updater is unable to identify '
-            'which branch is to be merged. '
-            'please checkout to any official branch`')
-        return repo.__del__()
+    if ac_br != 'master':
+        await ups.edit(LANG['INVALID_BRANCH'])
+        repo.__del__()
+        return
+
     try:
         repo.create_remote('upstream', off_repo)
     except BaseException:
@@ -187,58 +95,210 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
 
-    if changelog == '' and force_update is False:
-        await event.edit(
-            f'\n**⚙️ Alpha Sudah Versi Terbaru**\n')
-        await asyncio.sleep(15)
-        await event.delete()
-        return repo.__del__()
+    if not changelog and not force_update:
+        await ups.edit(LANG['UPDATE'].format(ac_br))
+        repo.__del__()
+        return
 
-    if conf is None and force_update is False:
-        changelog_str = f'**⚙️ Pembaruan Untuk Alpha [{ac_br}]:\n\n📃 Pembaruan 📃**\n\n`{changelog}`'
+    if conf != "now" and not force_update:
+        changelog_str = LANG['WAS_UPDATE'].format(ac_br, changelog)
         if len(changelog_str) > 4096:
-            await event.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
-            file = open("output.txt", "w+")
+            await ups.edit(LANG['BIG'])
+            file = open("UPDΔTΣ.txt", "w+")
             file.write(changelog_str)
             file.close()
-            await event.client.send_file(
-                event.chat_id,
-                "output.txt",
-                reply_to=event.id,
+            await ups.client.send_file(
+                ups.chat_id,
+                "UPDΔTΣ.txt",
+                reply_to=ups.id,
             )
-            remove("output.txt")
+            remove("UPDΔTΣ.txt")
         else:
-            await event.edit(changelog_str)
-        return await event.respond('❕**Perintah Untuk Update**\n**Alpha Userbot**\n\n 📚 **Cmd** : `.update now`\n 📚 **Cmd** : `.update deploy`\n\n__Untuk Meng Update Fitur Terbaru Dari Alpha.__')
+            await ups.edit(changelog_str)
+        await ups.respond('`Botunuz GoldenUserBot Sahibi tərəfindən yenilənir`')
+        return
 
     if force_update:
-        await event.edit(
-            '`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`')
+        await ups.edit(LANG['FORCE_UPDATE'])
     else:
-        await event.edit('`Processing....1%`')
-        await event.edit('`Processing....20%`')
-        await event.edit('`Processing....35%`')
-        await event.edit('`Processing....77%`')
-        await event.edit('`Processing....90%`')
-        await event.edit('`Processing....100%`')
-    if conf == "now":
-        await update(event, repo, ups_rem, ac_br)
-        await asyncio.sleep(10)
-        await event.delete()
-    elif conf == "deploy":
-        await deploy(event, repo, ups_rem, ac_br, txt)
-        await asyncio.sleep(10)
-        await event.delete()
-    return
+        await ups.edit(LANG['UPDATING'])
+    # Bot Heroku.
+    if HEROKU_APIKEY is not None:
+        import heroku3
+        heroku = heroku3.from_key(HEROKU_APIKEY)
+        heroku_app = None
+        heroku_applications = heroku.apps()
+        if not HEROKU_APPNAME:
+            await ups.edit(LANG['INVALID_APPNAME'])
+            repo.__del__()
+            return
+        for app in heroku_applications:
+            if app.name == HEROKU_APPNAME:
+                heroku_app = app
+                break
+        if heroku_app is None:
+            await ups.edit(
+                LANG['INVALID_HEROKU'].format(txt)
+            )
+            repo.__del__()
+            return
+        await ups.edit(LANG['HEROKU_UPDATING'])
+        ups_rem.fetch(ac_br)
+        repo.git.reset("--hard", "FETCH_HEAD")
+        heroku_git_url = heroku_app.git_url.replace(
+            "https://", "https://api:" + HEROKU_APIKEY + "@")
+        if "heroku" in repo.remotes:
+            remote = repo.remote("heroku")
+            remote.set_url(heroku_git_url)
+        else:
+            remote = repo.create_remote("heroku", heroku_git_url)
+        try:
+            remote.push(refspec="HEAD:refs/heads/master", force=True)
+        except GitCommandError as error:
+            await ups.edit(f'{txt}\n`{LANG["ERRORS"]}:\n{error}`')
+            repo.__del__()
+            return
+        await ups.edit(LANG['SUCCESSFULLY'])
+    else:
+        # Klasik yenilənmə
+        try:
+            ups_rem.pull(ac_br)
+        except GitCommandError:
+            repo.git.reset("--hard", "FETCH_HEAD")
+        await update_requirements()
+        await ups.edit(LANG['SUCCESSFULLY'])
+        # Bot Heroku
+        args = [sys.executable, "main.py"]
+        execle(sys.executable, *args, environ)
+        return
 
+@register(outgoing=True, pattern=r"^\.update(?: |$)(.*)")
+async def upstream(ups):
+    ".update əmri ilə botunun yenk versiyada olub olmadığını yoxlaya bilərsiz."
+    await ups.edit(LANG['DETECTING'])
+    conf = ups.pattern_match.group(1)
+    off_repo = UPSTREAM_REPO_URL
+    force_update = False
 
-CMD_HELP.update({
-    'update':
-    "📚 **Cmd** : .update"
-    "\n📄 **Descriptions** : Untuk Melihat Pembaruan Terbaru Alpha."
-    "\n\n📚 **Cmd** : .update now"
-    "\n📄 **Descriptions** : Memperbarui Alpha."
-    "\n\n📚 **Cmd** : .update deploy"
-    "\n📄 **Cmd** : Memperbarui Alpha Dengan Cara Deploy Ulang."
-})
+    try:
+        txt = "`Yenilənmə uğursuz oldu! Bəzi problemlərlə qarşılaşdım.`\n\n**LOG:**\n"
+        repo = Repo()
+    except NoSuchPathError as error:
+        await ups.edit(f'{txt}\n`{error} {LANG["NOT_FOUND"]}.`')
+        repo.__del__()
+        return
+    except GitCommandError as error:
+        await ups.edit(f'{txt}\n`{LANG["GIT_ERROR"]} {error}`')
+        repo.__del__()
+        return
+    except InvalidGitRepositoryError as error:
+        if conf != "now":
+            await ups.edit(
+                f"`{error} {LANG['NOT_GIT']}`"
+            )
+            return
+        repo = Repo.init()
+        origin = repo.create_remote('upstream', off_repo)
+        origin.fetch()
+        force_update = True
+        repo.create_head('master', origin.refs.seden)
+        repo.heads.dto.set_tracking_branch(origin.refs.sql)
+        repo.heads.dto.checkout(True)
 
+    ac_br = repo.active_branch.name
+    if ac_br != 'master':
+        await ups.edit(LANG['INVALID_BRANCH'])
+        repo.__del__()
+        return
+
+    try:
+        repo.create_remote('upstream', off_repo)
+    except BaseException:
+        pass
+
+    ups_rem = repo.remote('upstream')
+    ups_rem.fetch(ac_br)
+
+    changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
+
+    if not changelog and not force_update:
+        await ups.edit(LANG['UPDATE'].format(ac_br))
+        repo.__del__()
+        return
+
+    if conf != "now" and not force_update:
+        changelog_str = LANG['WAS_UPDATE'].format(ac_br, changelog)
+        if len(changelog_str) > 4096:
+            await ups.edit(LANG['BIG'])
+            file = open("UPDΔTΣ.txt", "w+")
+            file.write(changelog_str)
+            file.close()
+            await ups.client.send_file(
+                ups.chat_id,
+                "UPDΔTΣ.txt",
+                reply_to=ups.id,
+            )
+            remove("UPDΔTΣ.txt")
+        else:
+            await ups.edit(changelog_str)
+        await ups.respond(LANG['DO_UPDATE'])
+        return
+
+    if force_update:
+        await ups.edit(LANG['FORCE_UPDATE'])
+    else:
+        await ups.edit(LANG['UPDATING'])
+    # Bot Heroku.
+    if HEROKU_APIKEY is not None:
+        import heroku3
+        heroku = heroku3.from_key(HEROKU_APIKEY)
+        heroku_app = None
+        heroku_applications = heroku.apps()
+        if not HEROKU_APPNAME:
+            await ups.edit(LANG['INVALID_APPNAME'])
+            repo.__del__()
+            return
+        for app in heroku_applications:
+            if app.name == HEROKU_APPNAME:
+                heroku_app = app
+                break
+        if heroku_app is None:
+            await ups.edit(
+                LANG['INVALID_HEROKU'].format(txt)
+            )
+            repo.__del__()
+            return
+        await ups.edit(LANG['HEROKU_UPDATING'])
+        ups_rem.fetch(ac_br)
+        repo.git.reset("--hard", "FETCH_HEAD")
+        heroku_git_url = heroku_app.git_url.replace(
+            "https://", "https://api:" + HEROKU_APIKEY + "@")
+        if "heroku" in repo.remotes:
+            remote = repo.remote("heroku")
+            remote.set_url(heroku_git_url)
+        else:
+            remote = repo.create_remote("heroku", heroku_git_url)
+        try:
+            remote.push(refspec="HEAD:refs/heads/master", force=True)
+        except GitCommandError as error:
+            await ups.edit(f'{txt}\n`{LANG["ERRORS"]}:\n{error}`')
+            repo.__del__()
+            return
+        await ups.edit(LANG['SUCCESSFULLY'])
+    else:
+        # Klasik yenilənmə
+        try:
+            ups_rem.pull(ac_br)
+        except GitCommandError:
+            repo.git.reset("--hard", "FETCH_HEAD")
+        await update_requirements()
+        await ups.edit(LANG['SUCCESSFULLY'])
+        # Bot Heroku
+        args = [sys.executable, "main.py"]
+        execle(sys.executable, *args, environ)
+        return
+
+CmdHelp('update').add_command(
+    'update', None, (LANG['UPDATE1'])
+).add_command(
+    'update now', None, (LANG['UPDATE2
