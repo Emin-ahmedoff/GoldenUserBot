@@ -191,7 +191,7 @@ async def dyno_usage(dyno):
 async def _(dyno):
     if app is None:
         return await dyno.edit(
-            "**Heroku Xətası** `HEROKU_APPNAME` **və** `HEROKU_APIKEY` **doldurun**"
+            "**Heroku Xətası** `HEROKU_APPNAME` **və** `HEROKU_APIKEY` **doldurun.**"
         )
     await dyno.edit("**Heroku Hesabatı alınır**")
     with open("logs.txt", "w") as log:
