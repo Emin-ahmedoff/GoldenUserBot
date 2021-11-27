@@ -164,19 +164,19 @@ async def dyno_usage(dyno):
     await asyncio.sleep(1.5)
 
     return await dyno.edit(
-                f"♕  Dyno Məlumatı: {app.name}\n"
-                f"   ××××××××××××××××××××××××××××\n"
-                f"  ⚁ İstifadə olunan Dyno🥺: \n"
-                f"   {AppHours} saat - {AppMinutes} dəqiqə. \n"
-                f"   Faizlə: {AppPercentage}% \n"
-                f"   ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷\n"
-                f" ⚂ İstifadə edə biləcəyiniz Dyno😊: \n"
-                f"   {hours} saat - {minutes} dəqiqə\n"
-                f"   Faizlə : {percentage}%. \n"
-                f"   ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷\n"   
-                f"⚅   Təxmini bitmə müddəti🤭\n"
-                f"⚅   {day} gün\n"            
-                f"××××××××××××××××××××××××××××××\n"
+                f"⇰   Dyno Məlumatı Heroku Ap Adiniz: {app.name}\n"
+                f"⇰  ✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮\n"
+                f"⇰   İstifadə olunan Dyno🥺: \n"
+                f"⇰   {AppHours} saat - {AppMinutes} dəqiqə. \n"
+                f"⇰   Faizlə: {AppPercentage}% \n"
+                f"⇰  ✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮\n"
+                f"⇰   İstifadə edə biləcəyiniz Dyno😊: \n"
+                f"⇰   {hours} saat - {minutes} dəqiqə\n"
+                f"⇰   Faizlə : {percentage}%. \n"
+                f"⇰  ✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮\n"   
+                f"⇰   Təxmini bitmə müddəti🤭\n"
+                f"⇰  {day} gün\n"            
+                f"⇰  ✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮\n"
                           )
 
 
