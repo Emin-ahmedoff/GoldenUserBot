@@ -164,7 +164,8 @@ async def dyno_usage(dyno):
     await asyncio.sleep(1.5)
 
     return await dyno.edit(
-                f"⇰   Dyno Məlumatı Heroku Ap Adiniz: {app.name}\n"
+                f"⇰   Dyno Məlumatı Heroku Ap Adiniz:⇩ \n"
+                f"⇰           ♚ {app.name} \n"
                 f"⇰  ✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮✮\n"
                 f"⇰   İstifadə olunan Dyno🥺: \n"
                 f"⇰   {AppHours} saat - {AppMinutes} dəqiqə. \n"
