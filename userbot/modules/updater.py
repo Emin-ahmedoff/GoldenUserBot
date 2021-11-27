@@ -46,7 +46,7 @@ async def update_requirements():
     except Exception as e:
         return repr(e)
 
-@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.gyenilə(?: |$)(.*)")
+@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.gyenile(?: |$)(.*)")
 async def upstream(ups):
     ".update əmri ilə botunun yenk versiyada olub olmadığını yoxlaya bilərsiz."
     await ups.edit(LANG['DETECTING'])
@@ -104,15 +104,15 @@ async def upstream(ups):
         changelog_str = LANG['WAS_UPDATE'].format(ac_br, changelog)
         if len(changelog_str) > 4096:
             await ups.edit(LANG['BIG'])
-            file = open("UPDΔTΣ.txt", "w+")
+            file = open("degisiklikler.txt", "w+")
             file.write(changelog_str)
             file.close()
             await ups.client.send_file(
                 ups.chat_id,
-                "UPDΔTΣ.txt",
+                "degisiklikler.txt",
                 reply_to=ups.id,
             )
-            remove("UPDΔTΣ.txt")
+            remove("degisiklikler.txt")
         else:
             await ups.edit(changelog_str)
         await ups.respond('`Botunuz GoldenUserBot Sahibi tərəfindən yenilənir`')
