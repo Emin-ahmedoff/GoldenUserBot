@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# /A L P H A / U S E R / B O T/
+# Golden Userbot
 
 """ Hadiseleri idare etmek üçün User Bot modulu.
  UserBot'un esas komponentlerinden biri. """
