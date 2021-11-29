@@ -30,7 +30,7 @@ import userbot.cmdhelp
 
 ALIVE_MSG = [
     "`GoldenUserBot'unuz İşləyəni çox oldu:` **{worktime}** ❤️",
-    "🎆 `Narahat olma! Seninləyəm.`, `GoldenUserBotuserbot İşləyir.`",
+    "🎆 `Narahat olma! Seninləyəm.`, `GoldenUserBot İşləyir.`",
     "`Aycan Yorğuname ama Sənə yox Deyəməm!❤️♥️`",
     "✨ `GoldenUserBot sahibinin əmirlerine hazırdı...`",
     "`Huh! Məni çağirirlar 🍰 < bu sənin üçün 🥺..`",
