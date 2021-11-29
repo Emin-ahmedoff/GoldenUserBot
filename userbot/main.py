@@ -30,7 +30,7 @@ import userbot.cmdhelp
 
 ALIVE_MSG = [
     "`GoldenUserBot'unuz İşləyəni çox oldu:` **{worktime}** ❤️",
-    "🎆 `Narahat olma! Seninləyəm.`, `GoldenUserBot İşləyir.`",
+    "😁 `Narahat olma! Seninləyəm.`, `GoldenUserBot İşləyir.`",
     "`Aycan Yorğuname ama Sənə yox Deyəməm!❤️♥️`",
     "✨ `GoldenUserBot sahibinin əmirlerine hazırdı...`",
     "`Huh! Məni çağirirlar 🍰 < bu sənin üçün 🥺..`",
@@ -56,7 +56,7 @@ AFKSTR = [
     "Gizlenqaç oynayıram sakit durrr",
     "Bəli?",
     "Salam mən sahibimin meneceriyəm\nBuyurun istəklərinizi mənə deyə bilərsiz. Sizin üçün sahibimə çatdıraram.",
-    "Hələdə anlamadınsa burda deyiləm.",
+    "Hələdə anlamadında burda deyiləm.",
     "Salam, uzaq mesajıma xoş gəldiniz, sizə necə kömək edə bilərəm?",
     "Mən sahibimin xüsusi botuyam!, sizdə bot istəyirsizsə:",
     "Hal hazırda burdan çoox uzaqdayam.\nQışqırsan bəlkə eşitdim.",
