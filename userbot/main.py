@@ -29,13 +29,13 @@ import re
 import userbot.cmdhelp
 
 ALIVE_MSG = [
-    "`GoldenUserBot'unuz İşləyəni çox oldu:` **{worktime}** ❤️",
+    "`GoldenUserBot'unuz İşləyəni çox oldu ❤️",
     "😁 `Narahat olma! Seninləyəm.`, `GoldenUserBot İşləyir.`",
     "`Aycan Yorğuname ama Sənə yox Deyəməm!❤️♥️`",
     "✨ `GoldenUserBot sahibinin əmirlerine hazırdı...`",
     "`Huh! Məni çağirirlar 🍰 < bu sənin üçün 🥺..`",
     "{mention} **GoldenUserBot Tam sürəti ilə İşləyir ❤️**",
-    "{username}, `GoldenUserBot **{worktime}** vaxtdır işləyir...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{siri}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
+    "{username}, `GoldenUserBot Super işləyir...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{siri}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
 ]
 
 DIZCILIK_STR = [
