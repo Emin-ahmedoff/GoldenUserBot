@@ -28,6 +28,16 @@ from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
 
+ALIVE_MSG = [
+    "`GoldenUserBot'unuz İşləyəni çox oldu:` **{worktime}** ❤️",
+    "🎆 `Narahat olma! Seninləyəm.` **{sirisahip}**, `userbot çalışıyor.`",
+    "`⛈️ Yeni gib3i görünüyor!`, **{sirisahip}:3**",
+    "✨ `Userb4ot sahibinin emirlerine hazır...`",
+    "`Huh!` **{s5irisahip}** `beni çağırıyor 🍰 < bu senin için 🥺..`",
+    "{mention} **Si6ri Senin İçin Çalışıyor✨**",
+    "{username}, `S7iriOT {worktime} zamandır çalışıyor...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{siri}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
+]
+
 DIZCILIK_STR = [
     "Stickeri dızlayıram...",
     "Sticker paketə əlavə edilir...",
@@ -155,7 +165,7 @@ try:
 
     # PLUGIN MESAJLARI AYARLIYORUZ
     PLUGIN_MESAJLAR = {}
-    ORJ_PLUGIN_MESAJLAR = {"alive": "`GoldenUserBot Tam sürəti ilə İşləyir ❤️`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Güle Güle ben gidiyorum `🤠", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, yasaklandı!`", "mute": "{mention}`, sessize alındı!`", "approve": "{mention}`, bana mesaj gönderebilirsin!`", "disapprove": "{mention}`, artık bana mesaj gönderemezsin!`", "block": "{mention}`, engellendin!`"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": f"{str(choice(ALIVE_MSG))}",  "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Güle Güle ben gidiyorum `🤠", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, yasaklandı!`", "mute": "{mention}`, sessize alındı!`", "approve": "{mention}`, bana mesaj gönderebilirsin!`", "disapprove": "{mention}`, artık bana mesaj gönderemezsin!`", "block": "{mention}`, engellendin!`"}
 
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
