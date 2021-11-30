@@ -204,9 +204,9 @@ CmdHelp("tagall").add_command(
 ).add_command(
 	".restart", "Tək Tək və Admin Tağını dayandırar."
 ).add_command(
-	".emojitag", "<sebep>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
+	".emojitag", "<səbəb>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
-	".statustag", "<sebep>", "Qrupdakı Userləri Status Mesajları ilə Tağ edər."
+	".statustag", "<səbəb>", "Qrupdakı Userləri Status Mesajları ilə Tağ edər."
 ).add_command(
     ".stoptag", None, "Emojili və Statuslu Tağı dayandirar."
 ).add()
