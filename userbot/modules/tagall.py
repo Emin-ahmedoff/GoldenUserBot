@@ -200,11 +200,13 @@ async def kfrtag(event):
 CmdHelp("tagall").add_command(
 	"all", "<sebep>", "Qrupdakı Userleri Tək-Tək Tağ edər."
 ).add_command(
-	"alladmin", "<sebep>", "Qrupdakı Adminləri Tək-Tək Tağ edər."
+	".alladmin", "<sebep>", "Qrupdakı Adminləri Tək-Tək Tağ edər."
 ).add_command(
-	"emojitag", "<sebep>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
+	".restart", "Tək Tək və Admin Tağını dayandırar."
 ).add_command(
-	"statustag",  "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
+	".emojitag", "<sebep>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
-    "stoptag", None, "Emojili və Statuslu Tağı dayandirar."
+	".statustag", "<sebep>", "Qrupdakı Userləri Status Mesajları ilə Tağ edər."
+).add_command(
+    ".stoptag", None, "Emojili və Statuslu Tağı dayandirar."
 ).add()
