@@ -18,7 +18,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import bot, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, EMİN
+from userbot import bot, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, GOLD
 
 
 def register(**args):
@@ -26,7 +26,7 @@ def register(**args):
     pattern = args.get('pattern', None)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
-    emin = args.get('emin', False)
+    gold = args.get('gold', False)
     trigger_on_fwd = args.get('trigger_on_fwd', False)
     trigger_on_inline = args.get('trigger_on_inline', False)
     disable_errors = args.get('disable_errors', False)
