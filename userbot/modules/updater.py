@@ -158,8 +158,8 @@ async def upstream(ups):
         return
 
 
-@register(outgoing=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
-async def seden_update(ups):
+@register(gold=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
+async def gold_update(ups):
     conf = ups.pattern_match.group(1)
     if ups.is_reply:
         reply = await ups.get_reply_message()
