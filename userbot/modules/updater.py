@@ -62,9 +62,9 @@ async def upstream(ups):
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('master', origin.refs.emin)
-        repo.heads.emin.set_tracking_branch(origin.refs.sql)
-        repo.heads.emin.checkout(True)
+        repo.create_head('master', origin.refs.seden)
+        repo.heads.seden.set_tracking_branch(origin.refs.sql)
+        repo.heads.seden.checkout(True)
 
     ac_br = repo.active_branch.name
     if ac_br != 'master':
@@ -158,15 +158,15 @@ async def upstream(ups):
         return
 
 
-@register(emin=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
-async def emin_update(ups):
+@register(outgoing=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
+async def seden_update(ups):
     conf = ups.pattern_match.group(1)
     if ups.is_reply:
         reply = await ups.get_reply_message()
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
         if ren == SAHIB:
-            "Emin botu güncəlləyir..."
+            "emin botu güncəlləyir..."
             usp = await ups.reply(LANG['DETECTING'])
             off_repo = UPSTREAM_REPO_URL
             force_update = False
@@ -190,9 +190,9 @@ async def emin_update(ups):
                 origin = repo.create_remote('upstream', off_repo)
                 origin.fetch()
                 force_update = True
-                repo.create_head('master', origin.refs.emin)
-                repo.heads.emin.set_tracking_branch(origin.refs.sql)
-                repo.heads.emin.checkout(True)
+                repo.create_head('master', origin.refs.seden)
+                repo.heads.seden.set_tracking_branch(origin.refs.sql)
+                repo.heads.seden.checkout(True)
 
             ac_br = repo.active_branch.name
             if ac_br != 'master':
