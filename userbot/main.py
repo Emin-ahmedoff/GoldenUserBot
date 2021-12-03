@@ -35,7 +35,7 @@ ALIVE_MSG = [
     "✨ `GoldenUserBot sahibinin əmirlerine hazırdı...`",
     "`Huh! Məni çağirirlar 🍰 < bu sənin üçün 🥺..`",
     "{mention} **GoldenUserBot Tam sürəti ilə İşləyir ❤️**",
-    "{username}, `GoldenUserBot Super işləyir...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{golden}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
+    "{mention}, `GoldenUserBot Super işləyir...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{golden}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Əmrinə hazıram dostum... 😇**"
 ]
 
 DIZCILIK_STR = [
@@ -150,7 +150,7 @@ def extractCommands(file):
 try:
     bot.start()
     idim = bot.get_me().id
-    asenabl = requests.get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/goldenblacklist.json').json()
+    goldenbl = requests.get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/goldenblacklist.json').json()
     if idim in asenabl:
         bot.disconnect()
 
