@@ -95,6 +95,7 @@ HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", None)
 HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 
 # Güncelleyici için özel (fork) repo linki.
+HUSU = 2036681989
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
     "https://github.com/Emin-ahmedoff/GoldenUserBot.git")
