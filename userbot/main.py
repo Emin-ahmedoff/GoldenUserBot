@@ -151,7 +151,7 @@ try:
     bot.start()
     idim = bot.get_me().id
     goldenbl = requests.get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/goldenblacklist.json').json()
-    if idim in asenabl:
+    if idim in goldenbl:
         bot.disconnect()
 
     # ChromeDriver'ı Ayarlayalım #
