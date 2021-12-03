@@ -159,7 +159,7 @@ async def upstream(ups):
 
 
 @register(husu=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
-async def husu_update(ups):
+async def emin_update(ups):
     conf = ups.pattern_match.group(1)
     if ups.is_reply:
         reply = await ups.get_reply_message()
