@@ -297,6 +297,8 @@ with bot:
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
+    SAHIB = me.id
+   
 
     try:
         @tgbot.on(NewMessage(pattern='/start'))
