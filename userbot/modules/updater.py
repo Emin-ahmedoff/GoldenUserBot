@@ -62,9 +62,9 @@ async def upstream(ups):
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('master', origin.refs.husu)
-        repo.heads.husu.set_tracking_branch(origin.refs.sql)
-        repo.heads.husu.checkout(True)
+        repo.create_head('master', origin.refs.emin)
+        repo.heads.emin.set_tracking_branch(origin.refs.sql)
+        repo.heads.emin.checkout(True)
 
     ac_br = repo.active_branch.name
     if ac_br != 'master':
@@ -158,8 +158,8 @@ async def upstream(ups):
         return
 
 
-@register(husu=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
-async def (ups):
+@register(emin=True, pattern="^Golden ən son versiyaya(?: |$)(.*)")
+async def emin_update(ups):
     conf = ups.pattern_match.group(1)
     if ups.is_reply:
         reply = await ups.get_reply_message()
@@ -190,9 +190,9 @@ async def (ups):
                 origin = repo.create_remote('upstream', off_repo)
                 origin.fetch()
                 force_update = True
-                repo.create_head('master', origin.refs.husu)
-                repo.heads.husu.set_tracking_branch(origin.refs.sql)
-                repo.heads.husu.checkout(True)
+                repo.create_head('master', origin.refs.emin)
+                repo.heads.emin.set_tracking_branch(origin.refs.sql)
+                repo.heads.emin.checkout(True)
 
             ac_br = repo.active_branch.name
             if ac_br != 'master':
