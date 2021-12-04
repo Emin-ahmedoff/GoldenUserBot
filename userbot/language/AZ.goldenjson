@@ -589,7 +589,6 @@
             "NOT_GIT": "qovluğlu bir git reposu kimi görünmür. \nAncaq botu .update now əmri ilə zorla yeniləməklə bu problemi həll edə bilərsiniz.",
             "INVALID_BRANCH": "**[UPDATER]:**` Düşünürəm ki, Golden botunuzu dəyişdirdiniz və öz filialınızdan istifadə edirsiniz.\nBu vəziyyət yenilənməni edənin başını qarışdırır,\nGüncəllənmə haradan çəkiləcək?\nXahiş edirəm rəsmi repodan Golden Botunu istifadə edin.`",
             "UPDATE": "\n`Botun` **Ən güncəl versiyadadır!** `Branch:` **{}**\n",
-            "EMİNUPDATE": "**🤖 Emin onsuz ən son versiya olan Golden {} versiyasındayam**",
             "WAS_UPDATE": "**{} üçün yeni güncəlləmə mövcuddur!\n\nDəyişikliklər:**\n`{}`",
             "BIG": "`Dəyişikliklərin siyahısı çox böyükdür, ona bir fayl kimi baxmalısınız.`",
             "DO_UPDATE": "`Güncəllənməni etmək üçün \".update now\" komandasını istifadə edin.`",
@@ -597,8 +596,7 @@
             "UPDATING": "`Bot yenilənir...`",
             "INVALID_APPNAME": "`[HEROKU UPDATER] Güncəlləmədən istifadə etmək üçün HEROKU_APPNAME dəyişənini təyin etməlisiniz.`",
             "INVALID_HEROKU": "{}\n`Heroku dəyişənləri səhv və ya müəyyənləşdirilmişdir.`",
-            "HEROKU_UPDATING": "`[HEROKU UPDATER]\nUserBot-unuzun daha yaxşı olacağına əmin ola bilərsiniz :) Bu müddət maksimum 10 dəqiqə çəkir.`",
-            "EMİN_UPDATING": "👨🏻‍💻 **Golden Userbot Güncəllənir** ♻️\n➖➖➖➖➖➖➖➖➖➖➖➖\n🤖 Emin Tərəfindən Güncəllənirəm\n➖➖➖➖➖➖➖➖➖➖➖➖\n🕑 Güncəllənmə 10dəqiqə çəkir",
+            "HEROKU_UPDATING": "`[HEROKU UPDATER]\nUserBot-unuzun daha yaxşı olacağına əmin ola bilərsiniz :) Bu müddət maksimum 10 dəqiqə çəkir.`",          
             "ERRORS": "Qarşılaşdığımız səhflər bunlardır",
             "SUCCESSFULLY": "`Yeniləmə uğurla başa çatdı! \n Yenidən yüklənir ...`"
         },
