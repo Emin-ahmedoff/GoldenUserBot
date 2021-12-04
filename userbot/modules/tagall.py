@@ -202,11 +202,11 @@ CmdHelp("tagall").add_command(
 ).add_command(
 	"alladmin", "<sebep>", "Qrupdakı Adminləri Tək-Tək Tağ edər."
 ).add_command(
-	"restart", "Tək Tək və Admin Tağını dayandırar."
-).add_command(
 	"emojitag", "<səbəb>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
 	"statustag", "<səbəb>", "Qrupdakı Userləri Status Mesajları ilə Tağ edər."
 ).add_command(
     "stoptag", None, "Emojili və Statuslu Tağı dayandirar."
+).add_command(
+	"restart", "<səbəb>", "Tək Tək və Admin Tağını dayandırar."
 ).add()
