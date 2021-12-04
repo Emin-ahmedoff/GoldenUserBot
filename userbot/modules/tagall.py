@@ -208,5 +208,5 @@ CmdHelp("tagall").add_command(
 ).add_command(
     "stoptag", None, "Emojili və Statuslu Tağı dayandirar."
 ).add_command(
-	"restart", "<səbəb>", "Tək Tək və Admin Tağını dayandırar."
+	"restart", " ", "Tək Tək və Admin Tağını dayandırar."
 ).add()
