@@ -202,7 +202,7 @@ CmdHelp("tagall").add_command(
 ).add_command(
 	"alladmin", "<sebep>", "Qrupdakı Adminləri Tək-Tək Tağ edər."
 ).add_command(
-	"restart", none, "Tək Tək və Admin Tağını dayandırar."
+	"restart", "Tək Tək və Admin Tağını dayandırar."
 ).add_command(
 	"emojitag", "<səbəb>", "Qrupdakı Userləri Emojili Bir Şəkilde Tağ edər."
 ).add_command(
