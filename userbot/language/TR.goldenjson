@@ -1,8 +1,8 @@
 {
-    "__GOLDJSON__": true,
+    "__GOLDENJSON__": true,
     "LANGUAGE": "Türkçe",
     "LANGCODE": "tr",
-    "AUTHOR": "Gold Ekibi / TDU",
+    "AUTHOR": "Golden Ekibi / TDU",
     "STRINGS": {
         "__plugin": {
             "REPLY_FOR_PORT": "`Plugin-Port için lütfen bir dosyaya yanıt verin.`",
