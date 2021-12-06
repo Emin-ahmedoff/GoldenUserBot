@@ -9,9 +9,9 @@
 <p align="center">
     Golden UserBot, Telegram İşlətməyinizi asanlaşdıran bir botdur.
     <br>
-        <a href="https://github.com/Emin-ahmedoff/Goldenqrulum/blob/master/README.md#kurulum">Kurulum</a> |
-        <a href="https://github.com//Emin-ahmedoff/GoldenUserBot/wiki/G%C3%BCncelleme">Yenilenme</a> |
-        <a href="https://t.me/GoldenUserBot">Dəstək Qrupu</a>
+        <a href="https://t.me/Goldenqrulum/blob/master/README.md#kurulum">Qurulum</a> |
+        <a href="https://t.me/GoldenUserBot/wiki/G%C3%BCncelleme">Yenilənmə</a> |
+        <a href="https://t.me/GoldenUserBotaz">Dəstək Qrupu</a>
     <br>
 </p>
 
