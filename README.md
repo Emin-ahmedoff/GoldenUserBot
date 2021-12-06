@@ -11,7 +11,7 @@
     <br>
         <a href="https://t.me/Goldenqrulum/blob/master/README.md#kurulum">Qurulum</a> |
         <a href="https://t.me/GoldenUserBot/wiki/G%C3%BCncelleme">Yenilənmə</a> |
-        <a href="https://t.me/GoldenUserBotaz">Dəstək Qrupu</a>
+        <a href="https://t.me/GoldenSupportaz">Dəstək Qrupu</a>
     <br>
 </p>
 
