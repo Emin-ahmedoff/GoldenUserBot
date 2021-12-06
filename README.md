@@ -7,11 +7,11 @@
   <h1>Golden UserBot</h1>
 </div>
 <p align="center">
-    Golden UserBot, Telegram kullanmanızı kolaylaştıran bir bottur. Tamamen açık kaynaklı ve ücretsizdir.
+    Golden UserBot, Telegram İşlətməyinizi asanlaşdıran bir botdur.
     <br>
-        <a href="https://github.com/Emin-ahmedoff/GoldenUserBot/blob/master/README.md#kurulum">Kurulum</a> |
+        <a href="https://github.com/Emin-ahmedoff/Goldenqrulum/blob/master/README.md#kurulum">Kurulum</a> |
         <a href="https://github.com//Emin-ahmedoff/GoldenUserBot/wiki/G%C3%BCncelleme">Yenilenme</a> |
-        <a href="https://t.me/GoldenUserBot">Telegram Kanalı</a>
+        <a href="https://t.me/GoldenUserBot">Dəstək Qrupu</a>
     <br>
 </p>
 
