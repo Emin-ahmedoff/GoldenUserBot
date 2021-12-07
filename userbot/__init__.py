@@ -437,21 +437,22 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
                 buttons=[custom.Button.inline("⬅️ Geri", data=f"bilgi[{sayfa}]({cmd})")],
                 link_preview=False
             )
-    
+        except Exception as e:
         print(e)
         LOGS.info(
-            "Botunuzda inline dəstəyi deaktivdir. "
-            "Aktivləşdirmək üçün bir bot token qeyd edin və botunuzda inline modunu aktivləşdirin. "
-            "Əgər bunun xaricində bir xəts olduğunu düşünürsünüzsə, bizə yazın t.me/GoldenSupportaz."
+            "Botunuzda inline desteği devre dışı bırakıldı. "
+            "Etkinleştirmek için bir bot token tanımlayın ve botunuzda inline modunu etkinleştirin. "
+            "Eğer bunun dışında bir sorun olduğunu düşünüyorsanız bize ulaşın."
         )
 
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
     except:
         LOGS.info(
-            "BOTLOG_CHATID dəyişgəni keçərli bir varlıq deyil. "
-            "Ortam dəyişgənlərinizi / config.env faylınızı kontrol edin."
+            "BOTLOG_CHATID ortam değişkeni geçerli bir varlık değildir. "
+            "Ortam değişkenlerinizi / config.env dosyanızı kontrol edin."
         )
+        quit(1)
         
         
 
