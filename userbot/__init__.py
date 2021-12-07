@@ -570,7 +570,7 @@ else:
         )
         sys.exit(1)
         
-bot.loop.run_until_complete(goldenrasistan())
+bot.loop.run_until_complete(cyberasistan())
 
             
             
