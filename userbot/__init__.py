@@ -466,7 +466,7 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
 else:
     app = None
      
- async def cyberasistan():
+async def cyberasistan():
     if BOT_TOKEN:
         return
     ASISTAN_LOGO = "https://te.legra.ph/file/d0826cc68e95801775699.jpg"    
