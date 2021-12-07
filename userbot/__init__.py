@@ -297,7 +297,16 @@ with bot:
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
+    last_name = me.last_name
+    first_name = me.first_name
     DEFAULT_NAME = first_name
+    ISTIFADECI_ADI = me.username
+    bioqrafiya = bot(GetFullUserRequest(uid))
+    DEFAULT_BIO = bioqrafiya.about
+    ALIVE_NAME = DEFAULT_NAME
+    golden_m = me.id
+    SAHIB_ID = me.id
+    golden_mention = f"[{me}](tg://user?id={golden_m})"
    
 
     
