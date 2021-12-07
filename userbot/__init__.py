@@ -297,6 +297,7 @@ with bot:
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
+    DEFAULT_NAME = first_name
    
 
     
