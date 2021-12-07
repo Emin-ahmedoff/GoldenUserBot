@@ -299,15 +299,36 @@ with bot:
     uid = me.id
    
 
+    
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Salam mən` @GoldenUserBot`! Mən sahibimə (`@{me.username}`) kömək etmək üçün varam, yəni sənə kömək edə bilmərəm :/ Ama sen de bir GoldenUserBot açabilərsən; Qrupa bax` @GoldenUserBot')
+                 await event.reply(f'Salam mən @GoldenUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə Golden  qura bilərsən.')
             else:
-                await event.reply(f'`Salam Bos  GoldenUserBot working... 🪙`')
-
-        @tgbot.on(InlineQuery)  # pylint:disable=E0602
+                await event.reply(f'`Salam {DEFAULT_NAME}!\nGolden  asistanı aktivdir.')
+          
+        
+        @tgbot.on(NewMessage(pattern='/help'))
+        async def helpmesaji(event):
+            if not event.message.from_id == uid:
+                await event.reply(f'Salam mən @GoldenUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə Golden  qura bilərsən.')
+            else:
+                await event.reply(f'TEZLIKLƏ')
+                
+                
+        """
+        
+        @tgbot.on(NewMessage(pattern='/ping'))
+        async def ping(event)
+            if event.message.from_id != uid:
+                basla = datetime.now()
+                son = datetime.now()
+                pin = (son - basla).microseconds / 1000
+                await tgbot.send_message(event.chat_id, f"**Ping:** `{pin}ms`")
+        """
+                                  
+        @tgbot.on(InlineQuery)  
         async def inline_handler(event):
             builder = event.builder
             result = None
@@ -316,16 +337,16 @@ with bot:
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
-                    f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**♣️ GoldenUserBot!** [Golden](https://t.me/GoldenUserBot) __İşləyir...__\n\n**Yüklənənn Modül Sayı:** `{len(CMD_HELP)}`\n**Səyfə:** 1/{veriler[0]}",
+                    f"Xahiş edirəm sadəcə .help əmrini istifadə edin.",
+                    text=f"**Golden  USERBOT**\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
             elif query.startswith("http"):
                 parca = query.split(" ")
                 result = builder.article(
-                    "Dosya Yüklendi",
-                    text=f"**Dosya uğurlu bir şəkilde {parca[2]} sitesine yükləndi!**\n\nYükləmə vaxtı: {parca[1][:3]} saniye\n[‏‏‎ ‎]({parca[0]})",
+                    "Fayl yükləndi",
+                    text=f"**Fayl uğurla {parca[2]} saytına yükləndi!**\n\nYükləmə zamanı: {parca[1][:3]} saniyə\n[‏‏‎ ‎]({parca[0]})",
                     buttons=[
                         [custom.Button.url('URL', parca[0])]
                     ],
@@ -334,13 +355,13 @@ with bot:
             else:
                 result = builder.article(
                     "@GoldenUserBot",
-                    text="""@GoldenUserBot'u işəltməyi yoxlayin!
-Hesabınızı bot'a çevirə bilirsiniz və bunları istifadə edə bilərsiniz. Unutmayın, siz başqasının botunu yönetemezsiniz! Alttaki GitHub adresindən bütün quraşdırma detalları izah edilmişdir.""",
+                    text="""@GoldenUserBot-u işlətməyi yoxlayın!
+Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/GoldenUserBot"), custom.Button.url(
-                            "Gruba Katıl", "https://t.me/GoldenUserBot")],
+                        [custom.Button.url("Kanala Qatıl", "https://t.me/GoldenUserBot"), custom.Button.url(
+                            "Qrupa Qatıl", "https://t.me/GoldenSupportaz")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/Emin-ahmedoff/GoldenUserBot")]
+                            "GitHub", "https://github.com/FaridDadashzade/GoldenUserBot")]
                     ],
                     link_preview=False
                 )
@@ -349,11 +370,11 @@ Hesabınızı bot'a çevirə bilirsiniz və bunları istifadə edə bilərsiniz.
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ hey! Mesajlarımı redaktə etməyə çalışmayın! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişməyə çalışma! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"**🐺 Allah Azerini qorusun!** [Golden](https://t.me/GoldenUserBot) __İşləyir...__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Səyfə:** {sayfa + 1}/{veriler[0]}",
+                f"**Golden  USERBOT**\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -361,19 +382,19 @@ Hesabınızı bot'a çevirə bilirsiniz və bunları istifadə edə bilərsiniz.
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  hey! Mesajlarımı redaktə etməyə çalışmayın! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişməyə çalışma! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
             try:
-                butonlar = [custom.Button.inline("🔹 " + cmd[0], data=f"komut[{komut}[{sayfa}]]({cmd[0]})") for cmd in CMD_HELP_BOT[komut]['commands'].items()]
+                butonlar = [custom.Button.inline("⚜ " + cmd[0], data=f"komut[{komut}[{sayfa}]]({cmd[0]})") for cmd in CMD_HELP_BOT[komut]['commands'].items()]
             except KeyError:
-                return await event.answer("❌ Bu modul üçün heç bir təsvir yazılmayıb..", cache_time=0, alert=True)
+                return await event.answer("❌ Bu modula açıqlama yazılmayıb.", cache_time=0, alert=True)
 
             butonlar = [butonlar[i:i + 2] for i in range(0, len(butonlar), 2)]
-            butonlar.append([custom.Button.inline("◀️ Geri", data=f"sayfa({sayfa})")])
+            butonlar.append([custom.Button.inline("⬅️ Geri", data=f"sayfa({sayfa})")])
             await event.edit(
-                f"**📗 Dosya:** `{komut}`\n**🔢 Komut Sayısı:** `{len(CMD_HELP_BOT[komut]['commands'])}`",
+                f"**📗 Fayl:** `{komut}`\n**🔢 Əmr sayı:** `{len(CMD_HELP_BOT[komut]['commands'])}`",
                 buttons=butonlar,
                 link_preview=False
             )
@@ -381,23 +402,23 @@ Hesabınızı bot'a çevirə bilirsiniz və bunları istifadə edə bilərsiniz.
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ hey! Mesajlarımı redaktə etməyə çalışmayın! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişməyə çalışma! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
             komut = event.data_match.group(3).decode("UTF-8")
 
-            result = f"**📗 Dosya:** `{cmd}`\n"
+            result = f"**✅ Fayl:** `{cmd}`\n"
             if CMD_HELP_BOT[cmd]['info']['info'] == '':
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⬇️ Official:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
-                    result += f"**⚠️ Xəbərdarlıq:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+                    result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
+                    result += f"**⚠️ Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
                 else:
-                    result += f"**⬇️ Official:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
+                    result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
             else:
-                result += f"**⬇️ Official:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
+                result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⚠️ Xəbərdarlıq:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
+                    result += f"**⚠️ Uyarı:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
                 result += f"**ℹ️ Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
 
             command = CMD_HELP_BOT[cmd]['commands'][komut]
@@ -407,32 +428,150 @@ Hesabınızı bot'a çevirə bilirsiniz və bunları istifadə edə bilərsiniz.
                 result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
                 
             if command['example'] is None:
-                result += f"**💬 İzahat:** `{command['usage']}`\n\n"
+                result += f"**💬 Açıqlama:** `{command['usage']}`\n\n"
             else:
-                result += f"**💬 İzahat:** `{command['usage']}`\n"
+                result += f"**💬 Açıqlama:** `{command['usage']}`\n"
                 result += f"**⌨️ Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
 
             await event.edit(
                 result,
-                buttons=[custom.Button.inline("◀️ Geri", data=f"bilgi[{sayfa}]({cmd})")],
+                buttons=[custom.Button.inline("⬅️ Geri", data=f"bilgi[{sayfa}]({cmd})")],
                 link_preview=False
             )
     except Exception as e:
         print(e)
         LOGS.info(
-            "Botunuzda inline rejimi deaktiv edilib. "
-            "Aktivləşdirmək üçün bot tokenini təyin edin və botunuzda inline rejimini aktivləşdirin. "
-            "Bundan başqa problem olduğunu düşünürsünüzsə, bizimlə əlaqə saxlayın.."
+            "Botunuzda inline dəstəyi deaktivdir. "
+            "Aktivləşdirmək üçün bir bot token qeyd edin və botunuzda inline modunu aktivləşdirin. "
+            "Əgər bunun xaricində bir xəts olduğunu düşünürsünüzsə, bizə yazın t.me/GoldenSupportaz."
         )
 
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
     except:
         LOGS.info(
-            "BOTLOG_CHATID ortam değişkeni geçerli bir varlık değildir. "
-            "Ortam değişkenlerinizi / config.env dosyanızı kontrol edin."
+            "BOTLOG_CHATID dəyişgəni keçərli bir varlıq deyil. "
+            "Ortam dəyişgənlərinizi / config.env faylınızı kontrol edin."
         )
-        quit(1)
+        
+        
+
+from random import randint
+import heroku3
+heroku_api = "https://api.heroku.com"
+if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
+    Heroku = heroku3.from_key(HEROKU_APIKEY)
+    app = Heroku.app(HEROKU_APPNAME)
+    heroku_var = app.config()
+else:
+    app = None
+     
+async def goldenasistan():
+    if BOT_TOKEN:
+        return
+    ASISTAN_LOGO = "https://te.legra.ph/file/d0826cc68e95801775699.jpg"    
+    await bot.start()
+    LOGS.info("Golden  asistanı ayarlanır...")
+    DEFAULT_NAME + "-nin asistanı"
+    usnm = ISTIFADECI_ADI
+    name = DEFAULT_NAME
+    if usnm:
+        username = usnm + "_bot"
+    else:
+        username = "golden_" + (str(uid))[6:] + "_bot"
+    bf = "@BotFather"
+    await bot(UnblockRequest(bf))
+    await bot.send_message(bf, "/cancel")
+    time.sleep(3)
+    await bot.send_message(bf, "/start")
+    time.sleep(3)
+    await bot.send_message(bf, "/newbot")
+    time.sleep(3)
+    isdone = (await bot.get_messages(bf, limit=1))[0].text
+    if isdone.startswith("That I cannot do."):
+        LOGS.info(
+            "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+        )
+        sys.exit(1)
+    await bot.send_message(bf, name)
+    time.sleep(3)
+    isdone = (await bot.get_messages(bf, limit=1))[0].text
+    if not isdone.startswith("Good."):
+        await bot.send_message(bf, "Golden Bot")
+        time.sleep(3)
+        isdone = (await bot.get_messages(bf, limit=1))[0].text
+        if not isdone.startswith("Good."):
+            LOGS.info(
+                "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+            )
+            sys.exit(1)
+    await bot.send_message(bf, username)
+    time.sleep(3)
+    isdone = (await bot.get_messages(bf, limit=1))[0].text
+    await bot.send_read_acknowledge("botfather")
+    if isdone.startswith("Sorry,"):
+        ran = randint(1, 100)
+        username = "golden_" + (str(uid))[7:] + str(ran) + "_bot"
+        await bot.send_message(bf, username)
+        time.sleep(3)
+        nowdone = (await bot.get_messages(bf, limit=1))[0].text
+        if nowdone.startswith("Done!"):
+            token = nowdone.split("`")[1]
+            await bot.send_message(bf, "/setinline")
+            time.sleep(3)
+            await bot.send_message(bf, f"@{username}")
+            time.sleep(3)
+            await bot.send_message(bf, "Search")
+            time.sleep(3)
+            await bot.send_message(bf, "/setabouttext")
+            time.sleep(3)
+            await bot.send_message(bf, f"@{username}")
+            time.sleep(3)
+            await bot.send_message(bf, "@GoldenUserBot Asistan")
+            time.sleep(3)
+            await bot.send_message(bf, "/setuserpic")
+            time.sleep(3)
+            await bot.send_message(bf, f"@{username}")
+            time.sleep(3)
+            await bot.send_file(bf, ASISTAN_LOGO)
+            heroku_var["BOT_TOKEN"] = token
+            heroku_var["BOT_USERNAME"] = username
+            LOGS.info(f"@{username} Asistanınız hazırdır.")
+        else:
+            LOGS.info(
+                "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+            )
+            sys.exit(1)
+    elif isdone.startswith("Done!"):
+        token = isdone.split("`")[1]
+        await bot.send_message(bf, "/setinline")
+        time.sleep(3)
+        await bot.send_message(bf, f"@{username}")
+        time.sleep(3)
+        await bot.send_message(bf, "Search")
+        time.sleep(3)
+        await bot.send_message(bf, "/setabouttext")
+        time.sleep(3)
+        await bot.send_message(bf, f"@{username}")
+        time.sleep(3)
+        await bot.send_message(bf, "@GoldenUserBot Asistan")
+        time.sleep(3)
+        await bot.send_message(bf, "/setuserpic")
+        time.sleep(3)
+        await bot.send_message(bf, f"@{username}")
+        time.sleep(3)
+        await bot.send_file(bf, ASISTAN_LOGO) 
+        heroku_var["BOT_TOKEN"] = token
+        heroku_var["BOT_USERNAME"] = username
+        LOGS.info(f"@{username} Asistanınız hazırdır")
+    else:
+        LOGS.info(
+            "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+        )
+        sys.exit(1)
+        
+bot.loop.run_until_complete(goldenasistan())
+
             
             
 
