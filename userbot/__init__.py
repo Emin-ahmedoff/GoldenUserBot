@@ -298,25 +298,26 @@ with bot:
     me = bot.get_me()
     uid = me.id
    
-try:
+
+    try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Merhaba ben` @AsenaUserBot`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Asena açabilirsin; Kanala bak` @AsenaUserBot')
+                await event.reply(f'`Salam mən` @GoldenUserBot`! Mən sahibimə (`@{me.username}`) kömək etmək üçün varam, yəni sənə kömək edə bilmərəm :/ Ama sen de bir GoldenUserBot açabilərsən; Qrupa bax` @GoldenUserBot')
             else:
-                await event.reply(f'`Tengri save Turks! Asena working... 🐺`')
+                await event.reply(f'`Salam Bos  GoldenUserBot working... 🪙`')
 
         @tgbot.on(InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query == "@AsenaUserBot":
+            if event.query.user_id == uid and query == "@GoldenUserBot":
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**🐺 Tanrı Türk'ü Korusun!** [Asena](https://t.me/AsenaUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**♣️ GoldenUserBot!** [Golden](https://t.me/GoldenUserBot) __İşləyir...__\n\n**Yüklənənn Modül Sayı:** `{len(CMD_HELP)}`\n**Səyfə:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -324,7 +325,7 @@ try:
                 parca = query.split(" ")
                 result = builder.article(
                     "Dosya Yüklendi",
-                    text=f"**Dosya başarılı bir şekilde {parca[2]} sitesine yüklendi!**\n\nYükleme zamanı: {parca[1][:3]} saniye\n[‏‏‎ ‎]({parca[0]})",
+                    text=f"**Dosya uğurlu bir şəkilde {parca[2]} sitesine yükləndi!**\n\nYükləmə vaxtı: {parca[1][:3]} saniye\n[‏‏‎ ‎]({parca[0]})",
                     buttons=[
                         [custom.Button.url('URL', parca[0])]
                     ],
@@ -332,14 +333,14 @@ try:
                 )
             else:
                 result = builder.article(
-                    "@AsenaUserBot",
-                    text="""@AsenaUserBot'u kullanmayı deneyin!
-Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın, siz başkasının botunu yönetemezsiniz! Alttaki GitHub adresinden tüm kurulum detayları anlatılmıştır.""",
+                    "@GoldenUserBot",
+                    text="""@GoldenUserBot'u işəltməyi yoxlayin!
+Hesabınızı bot'a çevirə bilirsiniz və bunları istifadə edə bilərsiniz. Unutmayın, siz başqasının botunu yönetemezsiniz! Alttaki GitHub adresindən bütün quraşdırma detalları izah edilmişdir.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/AsenaUserBot"), custom.Button.url(
-                            "Gruba Katıl", "https://t.me/AsenaSupport")],
+                        [custom.Button.url("Kanala Katıl", "https://t.me/GoldenUserBot"), custom.Button.url(
+                            "Gruba Katıl", "https://t.me/GoldenUserBot")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/quiec/AsenaUserBot")]
+                            "GitHub", "https://github.com/Emin-ahmedoff/GoldenUserBot")]
                     ],
                     link_preview=False
                 )
@@ -348,11 +349,11 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @AsenaUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌ hey! Mesajlarımı redaktə etməyə çalışmayın! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"**🐺 Tanrı Türk'ü Korusun!** [Asena](https://t.me/AsenaUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"**🐺 Allah Azerini qorusun!** [Golden](https://t.me/GoldenUserBot) __İşləyir...__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Səyfə:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -360,14 +361,14 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @AsenaUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌  hey! Mesajlarımı redaktə etməyə çalışmayın! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
             try:
                 butonlar = [custom.Button.inline("🔹 " + cmd[0], data=f"komut[{komut}[{sayfa}]]({cmd[0]})") for cmd in CMD_HELP_BOT[komut]['commands'].items()]
             except KeyError:
-                return await event.answer("❌ Bu modüle açıklama yazılmamış.", cache_time=0, alert=True)
+                return await event.answer("❌ Bu modul üçün heç bir təsvir yazılmayıb..", cache_time=0, alert=True)
 
             butonlar = [butonlar[i:i + 2] for i in range(0, len(butonlar), 2)]
             butonlar.append([custom.Button.inline("◀️ Geri", data=f"sayfa({sayfa})")])
@@ -380,7 +381,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @AsenaUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌ hey! Mesajlarımı redaktə etməyə çalışmayın! Özünə bir @GoldenUserBot qur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
@@ -390,26 +391,26 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
             if CMD_HELP_BOT[cmd]['info']['info'] == '':
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
                     result += f"**⬇️ Official:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
-                    result += f"**⚠️ Uyarı:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+                    result += f"**⚠️ Xəbərdarlıq:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
                 else:
                     result += f"**⬇️ Official:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
             else:
                 result += f"**⬇️ Official:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⚠️ Uyarı:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
+                    result += f"**⚠️ Xəbərdarlıq:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
                 result += f"**ℹ️ Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
 
             command = CMD_HELP_BOT[cmd]['commands'][komut]
             if command['params'] is None:
-                result += f"**🛠 Komut:** `{PATTERNS[:1]}{command['command']}`\n"
+                result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']}`\n"
             else:
-                result += f"**🛠 Komut:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
+                result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
                 
             if command['example'] is None:
-                result += f"**💬 Açıklama:** `{command['usage']}`\n\n"
+                result += f"**💬 İzahat:** `{command['usage']}`\n\n"
             else:
-                result += f"**💬 Açıklama:** `{command['usage']}`\n"
-                result += f"**⌨️ Örnek:** `{PATTERNS[:1]}{command['example']}`\n\n"
+                result += f"**💬 İzahat:** `{command['usage']}`\n"
+                result += f"**⌨️ Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
 
             await event.edit(
                 result,
@@ -419,9 +420,9 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
     except Exception as e:
         print(e)
         LOGS.info(
-            "Botunuzda inline desteği devre dışı bırakıldı. "
-            "Etkinleştirmek için bir bot token tanımlayın ve botunuzda inline modunu etkinleştirin. "
-            "Eğer bunun dışında bir sorun olduğunu düşünüyorsanız bize ulaşın."
+            "Botunuzda inline rejimi deaktiv edilib. "
+            "Aktivləşdirmək üçün bot tokenini təyin edin və botunuzda inline rejimini aktivləşdirin. "
+            "Bundan başqa problem olduğunu düşünürsünüzsə, bizimlə əlaqə saxlayın.."
         )
 
     try:
@@ -432,6 +433,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
             "Ortam değişkenlerinizi / config.env dosyanızı kontrol edin."
         )
         quit(1)
+            
             
 
 
