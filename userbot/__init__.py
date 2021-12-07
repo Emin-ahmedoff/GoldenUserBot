@@ -301,7 +301,6 @@ with bot:
     first_name = me.first_name
     DEFAULT_NAME = first_name
     ISTIFADECI_ADI = me.username
-    DEFAULT_BIO = bioqrafiya.about
     ALIVE_NAME = DEFAULT_NAME
     golden_m = me.id
     SAHIB_ID = me.id
