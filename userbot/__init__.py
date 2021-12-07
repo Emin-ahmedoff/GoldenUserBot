@@ -437,7 +437,7 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
                 buttons=[custom.Button.inline("⬅️ Geri", data=f"bilgi[{sayfa}]({cmd})")],
                 link_preview=False
             )
-    except Exception as  e:
+    
         print(e)
         LOGS.info(
             "Botunuzda inline dəstəyi deaktivdir. "
