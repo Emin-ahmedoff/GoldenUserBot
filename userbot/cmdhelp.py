@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Yusuf Usta.
+# Copyright (C) 2020 
 #
 # Licensed under the GPL-3.0 License;
 # you may not use this file except in compliance with the License.
@@ -67,10 +67,10 @@ class CmdHelp:
             
             if self.INFO == '':
                 if not self.WARNING == '':
-                    result += f"**⚠️ Uyarı:** {self.WARNING}\n\n"
+                    result += f"**⚠️ Xəbərdaelıq:** {self.WARNING}\n\n"
             else:
                 if not self.WARNING == '':
-                    result += f"**⚠️ Uyarı:** {self.WARNING}\n"
+                    result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n"
                 result += f"**ℹ️ Info:** {self.INFO}\n\n"
                      
         for command in self.COMMANDS:
