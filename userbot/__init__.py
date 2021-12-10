@@ -201,7 +201,7 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
-WHITELIST = get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/whitelist.json').json()
+WHITELIST = get('https://raw.githubusercontent.com/Emin-ahmedoff/datas/main/premium.json').json()
 
 AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
