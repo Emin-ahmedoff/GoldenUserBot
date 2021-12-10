@@ -88,7 +88,7 @@ async def upstream(ups):
         repo.heads.seden.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'master':
+    if ac_br != 'main':
         await ups.edit(LANG['INVALID_BRANCH'])
         repo.__del__()
         return
@@ -221,7 +221,7 @@ async def asistan_update(ups):
                 repo.heads.seden.checkout(True)
 
             ac_br = repo.active_branch.name
-            if ac_br != 'main':
+            if ac_br != 'master':
                 await usp.edit(LANG['INVALID_BRANCH'])
                 repo.__del__()
                 return
