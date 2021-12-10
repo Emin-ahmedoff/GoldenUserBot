@@ -328,7 +328,7 @@ async def asistan_update(ups):
                 repo.heads.seden.checkout(True)
 
             ac_br = repo.active_branch.name
-            if ac_br != 'master':
+            if ac_br != 'main':
                 await usp.edit(LANG['INVALID_BRANCH'])
                 repo.__del__()
                 return
