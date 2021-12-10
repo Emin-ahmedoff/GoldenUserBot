@@ -203,6 +203,8 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/whitelist.json').json()
 
+AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
+
 ASISTAN = 1955246281 # Bot yardımcısı
 
 
