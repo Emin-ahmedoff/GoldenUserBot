@@ -1,5 +1,5 @@
 
-# Copyright (C) 2019 The Raphielscape Company LLC. Goldenuserbot
+# Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ async def upstream(ups):
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('master', origin.refs.seden)
+        repo.create_head('main', origin.refs.seden)
         repo.heads.seden.set_tracking_branch(origin.refs.sql)
         repo.heads.seden.checkout(True)
 
@@ -161,7 +161,7 @@ async def upstream(ups):
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
-            remote.push(refspec="HEAD:refs/heads/master", force=True)
+            remote.push(refspec="HEAD:refs/heads/main", force=True)
         except GitCommandError as error:
             await ups.edit(f'{txt}\n`{LANG["ERRORS"]}:\n{error}`')
             repo.__del__()
@@ -216,7 +216,7 @@ async def asistan_update(ups):
                 origin = repo.create_remote('upstream', off_repo)
                 origin.fetch()
                 force_update = True
-                repo.create_head('master', origin.refs.seden)
+                repo.create_head('main', origin.refs.seden)
                 repo.heads.seden.set_tracking_branch(origin.refs.sql)
                 repo.heads.seden.checkout(True)
 
@@ -276,7 +276,7 @@ async def asistan_update(ups):
                 else:
                     remote = repo.create_remote("heroku", heroku_git_url)
                 try:
-                    remote.push(refspec="HEAD:refs/heads/master", force=True)
+                    remote.push(refspec="HEAD:refs/heads/main", force=True)
                 except GitCommandError as error:
                     await usp.edit(f'{txt}\n`{LANG["ERRORS"]}:\n{error}`')
                     repo.__del__()
@@ -323,7 +323,7 @@ async def asistan_update(ups):
                 origin = repo.create_remote('upstream', off_repo)
                 origin.fetch()
                 force_update = True
-                repo.create_head('master', origin.refs.seden)
+                repo.create_head('main', origin.refs.seden)
                 repo.heads.seden.set_tracking_branch(origin.refs.sql)
                 repo.heads.seden.checkout(True)
 
@@ -383,7 +383,7 @@ async def asistan_update(ups):
                 else:
                     remote = repo.create_remote("heroku", heroku_git_url)
                 try:
-                    remote.push(refspec="HEAD:refs/heads/master", force=True)
+                    remote.push(refspec="HEAD:refs/heads/main", force=True)
                 except GitCommandError as error:
                     await usp.edit(f'{txt}\n`{LANG["ERRORS"]}:\n{error}`')
                     repo.__del__()
