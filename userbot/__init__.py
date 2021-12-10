@@ -203,6 +203,9 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://gitlab.com/Emin-ahmedoff/gold/-/raw/main/whitelist.json').json()
 
+ASISTAN = 1955246281 # Bot yardımcısı
+
+
 # CloudMail.ru ve MEGA.nz ayarlama
 if not os.path.exists('bin'):
     os.mkdir('bin')
