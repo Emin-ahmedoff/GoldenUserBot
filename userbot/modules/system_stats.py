@@ -14,7 +14,7 @@ from asyncio.subprocess import PIPE as asyncPIPE
 from platform import uname
 from shutil import which
 from os import remove
-from userbot import CMD_HELP, GOLDEN_VERSION, WHITELIST, MYID, ASISTAN
+from userbot import CMD_HELP, GOLDEN_VERSION
 from userbot.events import register
 from userbot.main import PLUGIN_MESAJLAR
 from telethon import version
@@ -160,28 +160,6 @@ async def amialive(e):
             await e.respond(PLUGIN_MESAJLAR['alive'], reply_to=e.message.reply_to_msg_id)
         else:
             await e.respond(PLUGIN_MESAJLAR['alive'])
-
-
-@register(incoming=True, from_users=WHITELIST, pattern="^.wlive$")
-async def asistanalive(ups):
-    if ups.fwd_from:
-        return
-    if ups.is_reply:
-        reply = await ups.get_reply_message()
-        replytext = reply.text
-        reply_user = await ups.client.get_entity(reply.from_id)
-        ren = reply_user.id
-        if ups.sender_id == 1955246281:
-            hitap = "❤️ ʕっ•ᴥ•ʔっ Asistan"
-        else:
-            hitap = "❤️ Sayın Yöneticim"
-        if ren == MYID:
-            GoldenVer = str(GOLDEN_VERSION.replace("v","")) 
-            await ups.reply(f"__{hitap} Şuan Çalışmaktayım\n BotVer: {GOLDEN_VERSION} !__")
-        else:
-            return
-    else:
-        return
 
 CmdHelp('system_stats').add_command(
     'sistem',
