@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Golden UserBot - Yusuf Usta
+# Golden UserBot 
 
 
 """ Sunucu hakkında bilgi veren UserBot modülüdür. """
@@ -160,6 +160,8 @@ async def amialive(e):
             await e.respond(PLUGIN_MESAJLAR['alive'], reply_to=e.message.reply_to_msg_id)
         else:
             await e.respond(PLUGIN_MESAJLAR['alive'])
+
+
 @register(incoming=True, from_users=WHITELIST, pattern="^.wlive$")
 @register(incoming=True, from_users=ASISTAN, pattern="^.alive$")
 async def asistanalive(ups):
@@ -170,13 +172,13 @@ async def asistanalive(ups):
         replytext = reply.text
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
-        if ups.sender_id == 1894789933:
+        if ups.sender_id == 1955246281:
             hitap = "❤️ ʕっ•ᴥ•ʔっ Asistan"
         else:
             hitap = "❤️ Sayın Yöneticim"
         if ren == MYID:
-            OwenVer = str(OWEN_VERSION.replace("v","")) 
-            await ups.reply(f"__{hitap} Şuan Çalışmaktayım\n BotVer: {OWEN_VERSION} !__")
+            GoldenVer = str(GOLDEN_VERSION.replace("v","")) 
+            await ups.reply(f"__{hitap} Şuan Çalışmaktayım\n BotVer: {GOLDEN_VERSION} !__")
         else:
             return
     else:
