@@ -163,7 +163,6 @@ async def amialive(e):
 
 
 @register(incoming=True, from_users=WHITELIST, pattern="^.wlive$")
-@register(incoming=True, from_users=ASISTAN, pattern="^.alive$")
 async def asistanalive(ups):
     if ups.fwd_from:
         return
