@@ -170,7 +170,7 @@ async def asistanalive(ups):
         replytext = reply.text
         reply_user = await jarvis.client.get_entity(reply.from_id)
         ren = reply_user.id
-        if jarvis.sender_id == 1955246281:
+        if ups.sender_id == 1955246281:
             xitab = GOLDEN_NAME
         else:
             xitab = GOLDEN_NAME
