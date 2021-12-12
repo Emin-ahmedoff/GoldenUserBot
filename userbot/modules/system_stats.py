@@ -176,7 +176,7 @@ async def amialive(ups):
             xitab = "İşləyir"
         if ren == MYID:
             Version = str(GOLDEN_VERSION.replace("v","")) 
-            await ups.reply(f"**{GOLDEN_NAME} Bos Bu şəxsin botu işləyir...**\n**GOLDEN:** `{GOLDEN_VERSION}`")
+            await ups.reply(f"__{xitab} Bos Bu şəxsin botu işləyir...**\n**GOLDEN:** `{GOLDEN_VERSION}`")
         else:
             return
     else:
