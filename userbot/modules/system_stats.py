@@ -171,9 +171,9 @@ async def asistanalive(ups):
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
         if ups.sender_id == 1955246281:
-            xitab = GOLDEN_NAME
+            xitab = "Boss"
         else:
-            xitab = GOLDEN_NAME
+            xitab = "İşləyir"
         if ren == MYID:
             Version = str(GOLDEN_VERSION.replace("v","")) 
             await ups.reply(f"**{GOLDEN_NAME} Bos Bu şəxsin botu işləyir...**\n**GOLDEN:** `{GOLDEN_VERSION}`")
