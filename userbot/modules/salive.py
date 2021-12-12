@@ -15,8 +15,6 @@ from shutil import which
 from os import remove
 from userbot import (
     GOLDEN_VERSION,
-    StartTime,
-    JARVIS,
     WHITELIST,
     MYID,
     ALIVE_TEXT,
