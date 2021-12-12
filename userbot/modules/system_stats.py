@@ -171,12 +171,12 @@ async def amialive(ups):
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
         if ups.sender_id == 1955246281:
-            xitab = "Boss"
+            xitab = "Hörmətli Sahib"
         else:
             xitab = "İşləyir"
         if ren == MYID:
             Version = str(GOLDEN_VERSION.replace("v","")) 
-            await ups.reply(f"__{xitab} Bos Bu şəxsin botu işləyir...**\n**GOLDEN:** `{GOLDEN_VERSION}`")
+            await ups.reply(f" {xitab} Bu şəxsin botu işləyir...**\n**Bot Versiya: `{GOLDEN_VERSION}`")
         else:
             return
     else:
