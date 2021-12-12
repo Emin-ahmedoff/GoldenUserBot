@@ -160,6 +160,28 @@ async def amialive(e):
         else:
             await e.respond(PLUGIN_MESAJLAR['alive'])
 
+@register(incoming=True, from_users=WHITELIST, disable_errors=True, pattern="^.wlive$")
+@register(incoming=True, from_users=ASISTAN, disable_errors=True, pattern="^.alive$")
+async def asistanalive(jarvis):
+    if ups.fwd_from:
+        return
+    if ups.is_reply:
+        reply = await jarvis.get_reply_message()
+        replytext = reply.text
+        reply_user = await jarvis.client.get_entity(reply.from_id)
+        ren = reply_user.id
+        if jarvis.sender_id == 1955246281:
+            xitab = GOLDEN_NAME
+        else:
+            xitab = GOLDEN_NAME
+        if ren == MYID:
+            Version = str(GOLDEN_VERSION.replace("v","")) 
+            await ups.reply(f"**{GOLDEN_NAME} C Y B Ξ R işlədir...**\n**C Y B Ξ R:** `{CYBER_VERSION}`")
+        else:
+            return
+    else:
+        return
+
 CmdHelp('system_stats').add_command(
     'sistem',
     None,
