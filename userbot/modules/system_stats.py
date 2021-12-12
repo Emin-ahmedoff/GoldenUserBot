@@ -166,7 +166,7 @@ async def asistanalive(ups):
     if ups.fwd_from:
         return
     if ups.is_reply:
-        reply = await jarvis.get_reply_message()
+        reply = await ups.get_reply_message()
         replytext = reply.text
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
