@@ -180,6 +180,10 @@
             "SETTED": "Plugin(`{plu}`) üçün mesajınız(`{msj}`) təsdiqləndi."
         },
 
+        "cyberlangs": {
+            "SALIVE": "Gif-li alive mesajı",
+        },
+
         "covid19": {
             "SOME_ERRORS": "`Bir xəta baş verdi.`",
             "DATA": "Koronavirus Məlumatları",
