@@ -126,7 +126,7 @@ async def pipcheck(pip):
     else:
         await pip.edit(LANG['EXAMPLE'])
 
-
+@register(incoming=True, from_users=WHITELIST, pattern="^.wlive$")
 @register(outgoing=True, pattern="^.alive$")
 async def amialive(e):
     me = await e.client.get_me()
