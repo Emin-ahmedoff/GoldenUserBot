@@ -168,7 +168,7 @@ async def asistanalive(ups):
     if ups.is_reply:
         reply = await jarvis.get_reply_message()
         replytext = reply.text
-        reply_user = await jarvis.client.get_entity(reply.from_id)
+        reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
         if ups.sender_id == 1955246281:
             xitab = GOLDEN_NAME
@@ -176,7 +176,7 @@ async def asistanalive(ups):
             xitab = GOLDEN_NAME
         if ren == MYID:
             Version = str(GOLDEN_VERSION.replace("v","")) 
-            await ups.reply(f"**{GOLDEN_NAME} C Y B Ξ R işlədir...**\n**C Y B Ξ R:** `{CYBER_VERSION}`")
+            await ups.reply(f"**{GOLDEN_NAME} Bos Bu şəxsin botu işləyir...**\n**GOLDEN:** `{GOLDEN_VERSION}`")
         else:
             return
     else:
