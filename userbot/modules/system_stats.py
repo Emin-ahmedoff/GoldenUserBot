@@ -162,7 +162,7 @@ async def amialive(e):
 
 @register(incoming=True, from_users=WHITELIST, disable_errors=True, pattern="^.wlive$")
 @register(incoming=True, from_users=ASISTAN, disable_errors=True, pattern="^.alive$")
-async def asistanalive(jarvis):
+async def asistanalive(ups):
     if ups.fwd_from:
         return
     if ups.is_reply:
