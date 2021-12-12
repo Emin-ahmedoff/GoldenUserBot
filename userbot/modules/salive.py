@@ -17,7 +17,6 @@ from userbot import (
     GOLDEN_VERSION,
     WHITELIST,
     MYID,
-    ALIVE_TEXT,
     bot
 )
 from userbot import CMD_HELP
