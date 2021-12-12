@@ -23,7 +23,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 from userbot.main import PLUGIN_MESAJLAR
-from userbot import DEFAULT_NAME, HEROKU_APPNAME, HEROKU_APIKEY, BOTLOG_CHATID, BOTLOG
+from userbot import HEROKU_APPNAME, HEROKU_APIKEY, BOTLOG_CHATID, BOTLOG
 
 
 # ---------------------------------- #
