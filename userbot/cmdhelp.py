@@ -67,7 +67,7 @@ class CmdHelp:
             
             if self.INFO == '':
                 if not self.WARNING == '':
-                    result += f"**⚠️ Xəbərdaelıq:** {self.WARNING}\n\n"
+                    result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n\n"
             else:
                 if not self.WARNING == '':
                     result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n"
@@ -76,15 +76,15 @@ class CmdHelp:
         for command in self.COMMANDS:
             command = self.COMMANDS[command]
             if command['params'] == None:
-                result += f"**🛠 Komut:** `{PATTERNS[:1]}{command['command']}`\n"
+                result += f"**🛠 Əmir:** `{PATTERNS[:1]}{command['command']}`\n"
             else:
-                result += f"**🛠 Komut:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
+                result += f"**🛠 Əmir:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
                 
             if command['example'] == None:
-                result += f"**💬 Açıklama:** `{command['usage']}`\n\n"
+                result += f"**💬 Açıqlama:** `{command['usage']}`\n\n"
             else:
-                result += f"**💬 Açıklama:** `{command['usage']}`\n"
-                result += f"**⌨️ Örnek:** `{PATTERNS[:1]}{command['example']}`\n\n"
+                result += f"**💬 Açıqlama:** `{command['usage']}`\n"
+                result += f"**⌨️ Örnək:** `{PATTERNS[:1]}{command['example']}`\n\n"
         return result
 
     def add(self):
