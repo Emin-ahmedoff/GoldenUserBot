@@ -262,4 +262,4 @@ async def fetch_info(chat, event):
         caption += f"Açıqlama: \n<code>{description}</code>\n"
     return caption
 
-CmdHelp('qrupi').add_command('qrup', None, 'Qrup haqqında məlumat göstərər.').add()
+CmdHelp('qrup').add_command('qrup', None, 'Qrup haqqında məlumat göstərər.').add()
