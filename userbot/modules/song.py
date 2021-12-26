@@ -15,7 +15,6 @@ from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 import os
 import subprocess
 from youtube_dl import YoutubeDL
-from userbot.utils import progress
 import glob
 from youtube_dl.utils import (
     ContentTooShortError,
