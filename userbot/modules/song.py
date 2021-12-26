@@ -1,32 +1,14 @@
+
 import datetime
-import json
-import pybase64
 import asyncio
-import shutil
-from telethon.tl.functions.channels import JoinChannelRequest
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot import bot, CMD_HELP
 from userbot.events import register
-from asyncio.exceptions import TimeoutError
-from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
-
 import os
 import subprocess
-from youtube_dl import YoutubeDL
 import glob
-from youtube_dl.utils import (
-    ContentTooShortError,
-    DownloadError,
-    ExtractorError,
-    GeoRestrictedError,
-    MaxDownloadsReached,
-    PostProcessingError,
-    UnavailableVideoError,
-    XAttrMetadataError,
-)
-from youtubesearchpython import SearchVideos
 from random import randint
 from userbot.cmdhelp import CmdHelp
 
@@ -36,8 +18,6 @@ from userbot.language import get_value
 LANG = get_value("song")
 
 # ████████████████████████████████ #
-
-
 
 @register(outgoing=True, pattern="^.deez(\d*|)(?: |$)(.*)")
 async def deezl(event):
@@ -81,104 +61,40 @@ async def deezl(event):
             await event.client.send_message(event.chat_id, f"`{sarkilar.buttons[sira][0].text}` | " + LANG['UPLOADED_WITH'], file=sarki.message)
             await event.delete()
 
+@register(outgoing=True, pattern="^.song(?: |$)(.*)")
+async def port_song(event):
+    if event.fwd_from:
+        return
+    
+    cmd = event.pattern_match.group(1)
+    if len(cmd) < 1:
+        await event.edit(LANG['UPLOADED_WITH']) 
 
-@register(outgoing=True, pattern=r"^\.song (.*)")
-async def download_video(event):
-    await event.edit(LANG['SEARCHING'])
-    url = event.pattern_match.group(1)
-    if not url:
-        return await event.edit(LANG['USAGE'])
-    search = SearchVideos(url, offset=1, mode="json", max_results=1)
-    test = search.result()
-    p = json.loads(test)
-    q = p.get("search_result")
-    try:
-        url = q[0]["link"]
-    except BaseException:
-        return await event.edit(LANG['NOT_FOUND'])
-    type = "audio"
-    await event.edit(LANG['SEARCHING'] + f"{url}")
-    if type == "audio":
-        opts = {
-            "format": "bestaudio",
-            "addmetadata": True,
-            "key": "FFmpegMetadata",
-            "writethumbnail": True,
-            "prefer_ffmpeg": True,
-            "geo_bypass": True,
-            "nocheckcertificate": True,
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "320",
-                }
-            ],
-            "outtmpl": "%(id)s.mp3",
-            "quiet": True,
-            "logtostderr": False,
-        }
-    try:
-        await event.edit(LANG['DOWNLOADED'])
-        with YoutubeDL(opts) as rip:
-            rip_data = rip.extract_info(url)
-    except DownloadError as DE:
-        await event.edit(f"`{str(DE)}`")
-        return
-    except ContentTooShortError:
-        await event.edit("`Yükləmə məzmunu çox qısadır.`")
-        return
-    except GeoRestrictedError:
-        await event.edit(
-            "`Coğrafi məhdudiyyətlər veb sayt tərəfindən tətbiq olunduğu üçün coğrafi məkanınızdan videolar mövcud deyil.`"
+    reply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+        
+    await event.edit(LANG['SEARCHING_SPOT'])  
+    dosya = os.getcwd() 
+    os.system(f"spotdl --song {cmd} -f {dosya}")
+    await event.edit(LANG['DOWNLOADED'])    
+
+    l = glob.glob("*.mp3")
+    if len(l) >= 1:
+        await event.edit(LANG['UPLOADING'])
+        await event.client.send_file(
+            event.chat_id,
+            l[0],
+            force_document=True,
+            allow_cache=False,
+            reply_to=reply_to_id
         )
-        return
-    except MaxDownloadsReached:
-        await event.edit("`Limitə çatıldı...`")
-        return
-    except PostProcessingError:
-        await event.edit("`Bağışlayın bir xəta baş verdi...`")
-        return
-    except UnavailableVideoError:
-        await event.edit("`Bağışlayın bir xəta baş verdi...`")
-        return
-    except XAttrMetadataError as XAME:
-        await event.edit(f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
-        return
-    except ExtractorError:
-        await event.edit("`Bağışlayın bir xəta baş verdi.`")
-        return
-    except Exception as e:
-        await event.edit(f"{str(type(e)): {str(e)}}")
-        return
-    try:
-        sung = str(pybase64.b64decode("QGdvbGRlbnVzZXJib3Q=="))[2:14]
-        await bot(JoinChannelRequest(sung))
-    except BaseException:
-        pass
-    upteload = """
-Musiqi yüklənməyə hazırlanır...
-Mahnı adı - {}
-""".format(
-        rip_data["title"], rip_data["uploader"]
-    )
-    await event.edit(f"`{upteload}`")
-    await event.client.send_file(
-        event.chat_id,
-        f"{rip_data['id']}.mp3",
-        supports_streaming=True,
-        caption=f"**🎶 Mahnı adı:** `{rip_data['title']}`\n\n**Downloaded by** [GoldenUserBot](https://t.me/goldenuserbot)\n",
-        attributes=[
-            DocumentAttributeAudio(
-                duration=int(rip_data["duration"]),
-                title=str(rip_data["title"]),
-                performer=str(rip_data["uploader"]),
-            )
-        ],
-    )
-    return await event.delete()
-    os.remove(f"{rip_data['id']}.mp3")
-
+        await event.delete()
+    else:
+        await event.edit(LANG['NOT_FOUND'])   
+        return 
+    os.system("rm -rf *.mp3")
+    subprocess.check_output("rm -rf *.mp3",shell=True)
 
 @register(outgoing=True, pattern="^.songpl ?(.*)")
 async def songpl(event):
@@ -221,11 +137,10 @@ async def songpl(event):
     os.system(f"rm -rf {klasor}/*.pl")
     subprocess.check_output(f"rm -rf {klasor}/*.pl",shell=True)
 
-
 CmdHelp('song').add_command(
-    'deez', '<musiqi adı/youtube/spotify/soundcloud>', 'Birçox saytdan musiqini axtarıb, yükləyər.'
+    'deez', '<şarkı ismi/youtube/spotify/soundcloud>', 'Birçok siteden şarkıyı arayıp, şarkıyı indirir.'
 ).add_command(
-    'song', '<musiqi adı/youtube/spotify>', 'Musiqi yükləyər.'
+    'song', '<şarkı ismi/youtube/spotify>', 'Şarkı indirir.'
 ).add_command(
-    'songpl', '<spotify playlist>', 'Spotify Playlist\'indən musiqi yükləyər'
+    'songpl', '<spotify playlist>', 'Spotify Playlist\'inden şarkı indirir'
 ).add()
