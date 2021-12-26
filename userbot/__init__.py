@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 from requests import get
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.sync import TelegramClient, custom
+from telethon.tl.functions.users import GetFullUserRequest
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from math import ceil
