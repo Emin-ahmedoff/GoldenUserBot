@@ -297,7 +297,7 @@ with bot:
             bot(JoinChannelRequest("@GoldenUserBot"))
             bot(JoinChannelRequest("@Goldensupportaz"))
         except:
-        pass
+           pass
     last_name = me.last_name
     first_name = me.first_name
     DEFAULT_NAME = first_name
