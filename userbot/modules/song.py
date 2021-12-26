@@ -153,7 +153,7 @@ async def download_video(event):
         await event.edit(f"{str(type(e)): {str(e)}}")
         return
     try:
-        sung = str(pybase64.b64decode("QHRoZWN5YmVydXNlcmJvdA=="))[2:14]
+        sung = str(pybase64.b64decode("QGdvbGRlbnVzZXJib3Q=="))[2:14]
         await bot(JoinChannelRequest(sung))
     except BaseException:
         pass
