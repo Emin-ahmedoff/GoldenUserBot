@@ -19,7 +19,7 @@ async def clone(event):
         reply = await event.get_reply_message()
         reply_user = await event.client.get_entity(reply.from_id)
         if reply_user.id in BRAIN_CHECKER or reply_user.id in WHITELIST:
-            await event.edit("Bağışlayın, ama bir C Y B Ξ R UserBot adminini klonlamayacağam!")
+            await event.edit("Bağışlayın, ama bir  GoldenUserBot adminini klonlamayacağam!")
             return
     reply_message = await event.get_reply_message()
     replied_user, error_i_a = await get_full_user(event)
@@ -58,7 +58,7 @@ async def clone(event):
     await event.delete()
     await event.client.send_message(
       event.chat_id,
-      "`C Y B Ξ R Userbot vasitəsilə səni oğurladım..`",
+      "`GoldenUserbot vasitəsilə səni oğurladım..`",
       reply_to=reply_message
       )
 
@@ -82,7 +82,7 @@ async def revert(event):
         await bot(functions.account.UpdateProfileRequest(about=DEFAULT_BIO))
         await event.edit(f"`{DEFAULT_NAME}, hesabınız uğurla köhnə halına qaytarıldı!`")
     except AboutTooLongError:
-        srt_bio = "@TheCyberUserBot"
+        srt_bio = "@GoldenUserBot"
         await bot(functions.account.UpdateProfileRequest(about=srt_bio))
         await event.edit("`Hesabınız uğurla köhnə halına qaytarıldı!\nAmma bio'nuz çox uzun olduğu üçün hazır bio-dan istifadə etdim.`")
 
@@ -145,5 +145,5 @@ async def get_full_user(event):
 Help = CmdHelp('klon')
 Help.add_command('clone', '<bir istifadəçiyə cavab olaraq>', 'Qeyd etdiyiniz istifadəçinin klonu olarsınız.')
 Help.add_command('revert', None, 'Hesabınızı əvvəlki halına qaytarar.')
-Help.add_info('@TheCyberUserBot')
+Help.add_info('@GoldenUserBot')
 Help.add()
