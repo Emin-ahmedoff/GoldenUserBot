@@ -298,7 +298,7 @@ with bot:
             bot(JoinChannelRequest("@Goldensupportaz"))
         except:
             pass
-
+    DEFAULT_NAME = first_name
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
