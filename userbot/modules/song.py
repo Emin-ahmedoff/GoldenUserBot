@@ -153,7 +153,7 @@ async def download_video(event):
         await event.edit(f"{str(type(e)): {str(e)}}")
         return
     try:
-        sung = str(pybase64.b64decode("QHRoZWN5YmVydXNlcmJvdA=="))[2:14]
+        sung = str(pybase64.b64decode("QEdvbGRlbnVzZXJib3Q=="))[2:14]
         await bot(JoinChannelRequest(sung))
     except BaseException:
         pass
@@ -168,7 +168,7 @@ Mahnı adı - {}
         event.chat_id,
         f"{rip_data['id']}.mp3",
         supports_streaming=True,
-        caption=f"**🎶 Musiqi adı:** `{rip_data['title']}`\n\n** by** [C Y B Ξ R](https://t.me/thecyberuserbot)\n",
+        caption=f"**🎶 Musiqi adı:** `{rip_data['title']}`\n\n [GoldenUserBot](https://t.me/goldenuserbot)\n",
         attributes=[
             DocumentAttributeAudio(
                 duration=int(rip_data["duration"]),
