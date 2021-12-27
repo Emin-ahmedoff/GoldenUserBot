@@ -168,7 +168,7 @@ Mahnı adı - {}
         event.chat_id,
         f"{rip_data['id']}.mp3",
         supports_streaming=True,
-        caption=f"**🎶 Musiqi adı:** `{rip_data['title']}`\n\n [GoldenUserBot](https://t.me/goldenuserbot)\n",
+        caption=f"**🎶 Musiqi adı:** `{rip_data['title']}`\n\n [GoldenUserBot](https://t.me/goldenuserbot) ilə yükləndi 😊\n",
         attributes=[
             DocumentAttributeAudio(
                 duration=int(rip_data["duration"]),
