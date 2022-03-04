@@ -84,7 +84,7 @@ async def addmember(event):
         f"[GOLDEN]: \n\n✔️ `{s}` nəfər {event.chat.title} qrupuna dəvət olundu\n❌ {f} nəfər dəvət edilə bilmədi "
     )
 
-@register(outgoing=True, pattern="^addm$")
+@register(outgoing=True, pattern="^.addm$")
 async def addm(event):
     xx = await edit_or_reply(event, "**Proses Menambahkan** `0` **Member**")
     chat = await event.get_chat()
