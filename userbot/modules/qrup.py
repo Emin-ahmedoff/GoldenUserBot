@@ -40,8 +40,8 @@ from telethon.tl.functions.messages import GetFullChatRequest
 from userbot import bot, BOTLOG, BOTLOG_CHATID, SUDO_ID
 
 
-@register(outgoing=True, pattern="^.addmember ?(.*)", groups_only=True, disable_errors=True)
-@register(incoming=True, from_users=SUDO_ID, pattern="^.addmember ?(.*)", disable_errors=True)
+@register(outgoing=True, pattern="^.getir ?(.*)", groups_only=True, disable_errors=True)
+@register(incoming=True, from_users=SUDO_ID, pattern="^.addm ?(.*)", disable_errors=True)
 async def addmember(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
@@ -57,69 +57,19 @@ async def addmember(event):
     f = 0
     error = "None"
 
-    await event.edit("[GOLDEN]:\n\n`İstifadəçilər toplanılır...`")
-    async for user in bot.iter_participants(usrtr.full_chat.id):
+   
+    await event.edit("**Hazır ki vəziyyət**\n\n`İstifadəçilər dəvət edilir.......`")
+    async for user in event.client.iter_participants(usrtr.full_chat.id):
         try:
             if error.startswith("Too"):
-                await event.edit(
-                    f"[GOLDEN]\nXəta baş verdi və proses dayandırıldı(`Telethon limiti keçildi, daha sonra yenidən cəhd edin`)\n**Xəta** : \n`{error}`\n\n✔️ `{s}` nəfər dəvət olundu\n❌ `{f}`  nəfər dəvət edilə bilmədi")
-                if BOTLOG_CHATID is not None:
-                    await bot.send_message(BOTLOG_CHATID, "#ADDMEMBER\n"
-            f"UĞURLU**{s}** hesab(lar) !!\
-            \nUĞURSUZ **{f}** hesab(lar) !!\
-            \nCHAT: {event.chat.title}(`{event.chat_id}`)")
-            await bot(
-                functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
-            )
+                return await event.edit(f"**Xəta oldu**\n(`Telethon limiti keçildi, daha sonra yenidən cəhd edin `)\n**XƏTA❌** : \n`{error}`\n\n• dəvət edildi `{s}`  \n• Uğursuz dəvətlər: `{f}`")
+            await event.client(functions.channels.InviteToChannelRequest(channel=chat, users=[user.id]))
             s = s + 1
-            await sleep(1.5)
-            await event.edit(
-                f"[GOLDEN]:\n\n•İstifadəçilər dəvət olunur...\n•  **Uğursuz:** `{f}` nəfər\n\n**×Son Uğursuz:** `{error}`"
-            )
-            asyncio.sleep(2.5)
+            await event.edit(f"**Dəvət edilir...**\n\n• Əlavə olundu `{s}` \n• Uğursuz dəvətlər `{f}` \n\n**× LastError:** `{error}`")
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await event.edit(
-        f"[GOLDEN]: \n\n✔️ `{s}` nəfər {event.chat.title} qrupuna dəvət olundu\n❌ {f} nəfər dəvət edilə bilmədi "
-    )
-
-@register(outgoing=True, pattern="^.addm ?(.*)", groups_only=True, disable_errors=True)
-async def addm(event):
-    xx = await edit_or_reply(event, "**Proses Menambahkan** `0` **Member**")
-    chat = await event.get_chat()
-    users = []
-    with open("members.csv", encoding="UTF-8") as f:
-        rows = csv.reader(f, delimiter=",", lineterminator="\n")
-        next(rows, None)
-        for row in rows:
-            user = {"id": int(row[0]), "hash": int(row[1])}
-            users.append(user)
-    n = 0
-    for user in users:
-        n += 1
-        if n % 30 == 0:
-            await xx.edit(
-                f"**Sudah Mencapai 30 anggota, Tunggu Selama** `{900/60}` **menit**"
-            )
-            await asyncio.sleep(900)
-        try:
-            userin = InputPeerUser(user["id"], user["hash"])
-            await event.client(InviteToChannelRequest(chat, [userin]))
-            await asyncio.sleep(random.randrange(5, 7))
-            await xx.edit(f"**Proses Menambahkan** `{n}` **Member**")
-        except TypeError:
-            n -= 1
-            continue
-        except UserAlreadyParticipantError:
-            n -= 1
-            continue
-        except UserPrivacyRestrictedError:
-            n -= 1
-            continue
-        except UserNotMutualContactError:
-            n -= 1
-            continue
+    return await event.edit(f"**Dəvət Yekunlaşdı** \n\n• Uğurla nəticələnən dəvətlər `{s}` \n• Uğursuz Dəvətlər `{f}` ")
 
 # FORKED FROM https://github.com/alcyper/alcyper #
 @register(outgoing=True, pattern="^.qrup(?: |$)(.*)")
