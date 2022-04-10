@@ -206,7 +206,7 @@ WHITELIST = get('https://raw.githubusercontent.com/Emin-ahmedoff/datas/master/pr
 
 AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
-ASISTAN = 1955246281 # Bot yardımcısı
+ASISTAN = 5273794514 # Bot yardımcısı
 
 
 # CloudMail.ru ve MEGA.nz ayarlama
